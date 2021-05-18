@@ -1,0 +1,55 @@
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+
+;; DOOM CONFIG
+
+;; == EMAIL SETTINGS ==
+(setq user-full-name "Hai Nguyen"
+      user-mail-address "hhai2105@gmail.com")
+;; =================================================
+
+
+;;==FONTS==
+ (setq doom-font (font-spec :family "monospace" :size 20 :weight 'semi-light)
+       doom-variable-pitch-font (font-spec :family "sans" :size 20))
+;; Get file icons in dired
+;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+;; =================================================
+
+
+;; == THEMES ==
+(setq doom-theme 'doom-dracula)
+;; =================================================
+
+;; == ORG MODE ==
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/org/")
+;; This determines the style of line numbers in effect. If set to `nil', line
+;; numbers are disabled. For relative line numbers, set this to `relative'.
+(setq display-line-numbers-type t)
+;; =================================================
+
+;; == EVIL MODE ==
+;; Exit insert mode by pressing j and then j quickly
+(require 'key-chord)
+(key-chord-mode 1)
+(setq key-chord-two-keys-delay 0.5)
+(key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+(key-chord-mode 1)
+;; =================================================
+
+
+;;==TEMPLATES FILE==
+(set-file-template! "/math\\.tex$" :trigger "__math.tex" :mode 'latex-mode)
+;; =================================================
+
+;; == EXTRA FEATURES ==
+(setq select-enable-clipboard t)
+;; =================================================
+
+;; == TEX MODE ==
+(require 'tex-site)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTex t)
+(global-font-lock-mode t)
+;; =================================================
