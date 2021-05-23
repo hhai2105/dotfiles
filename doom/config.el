@@ -53,36 +53,6 @@
 ;; (use-package emojify
 ;;   :hook (after-init . global-emojify-mode))
 
-;; (use-package! elfeed-goodies)
-;; (elfeed-goodies/setup)
-;; (setq elfeed-goodies/entry-pane-size 0.5)
-;; (add-hook 'elfeed-show-mode-hook 'visual-line-mode)
-;; (evil-define-key 'normal elfeed-show-mode-map
-;;   (kbd "J") 'elfeed-goodies/split-show-next
-;;   (kbd "K") 'elfeed-goodies/split-show-prev)
-;; (evil-define-key 'normal elfeed-search-mode-map
-;;   (kbd "J") 'elfeed-goodies/split-show-next
-;;   (kbd "K") 'elfeed-goodies/split-show-prev)
-;; (setq elfeed-feeds (quote
-;;                     (("https://www.reddit.com/r/linux.rss" reddit linux)
-;;                      ("https://www.reddit.com/r/commandline.rss" reddit commandline)
-;;                      ("https://www.reddit.com/r/distrotube.rss" reddit distrotube)
-;;                      ("https://www.reddit.com/r/emacs.rss" reddit emacs)
-;;                      ("https://www.gamingonlinux.com/article_rss.php" gaming linux)
-;;                      ("https://hackaday.com/blog/feed/" hackaday linux)
-;;                      ("https://opensource.com/feed" opensource linux)
-;;                      ("https://linux.softpedia.com/backend.xml" softpedia linux)
-;;                      ("https://itsfoss.com/feed/" itsfoss linux)
-;;                      ("https://www.zdnet.com/topic/linux/rss.xml" zdnet linux)
-;;                      ("https://www.phoronix.com/rss.php" phoronix linux)
-;;                      ("http://feeds.feedburner.com/d0od" omgubuntu linux)
-;;                      ("https://www.computerworld.com/index.rss" computerworld linux)
-;;                      ("https://www.networkworld.com/category/linux/index.rss" networkworld linux)
-;;                      ("https://www.techrepublic.com/rssfeeds/topic/open-source/" techrepublic linux)
-;;                      ("https://betanews.com/feed" betanews linux)
-;;                      ("http://lxer.com/module/newswire/headlines.rss" lxer linux)
-;;                      ("https://distrowatch.com/news/dwd.xml" distrowatch linux))))
-
 (emms-all)
 (emms-default-players)
 (emms-mode-line 1)
@@ -304,9 +274,7 @@
        :desc "Point to register" "SPC" #'point-to-register))
 
 ;; (map! :leader
-;;       (:prefix ("\\" . "ssh")
-;;        :desc "Ssh into distrotube.com" "\\ d" #'(lambda () (interactive) (find-file "/scp:derek@distrotube.com"))
-       ;; :desc "Ssh into my nextcloud" "\\ n" #'(lambda () (interactive) (find-file "/scp:derek@distrotube.net"))))
+      ;; :desc "Ssh into my nextcloud" "\\ n" #'(lambda () (interactive) (find-file "/scp:derek@distrotube.net"))))
 
 ;; (setq shell-file-name "/bin/bash"
 ;;       vterm-max-scrollback 5000)
@@ -327,13 +295,6 @@
 (setq reftex-plug-into-AUCTex t)
 (global-font-lock-mode t)
 
-;; (defun prefer-horizontal-split ()
-;;   (set-variable 'split-height-threshold nil t)
-;;   (set-variable 'split-width-threshold 40 t)) ; make this as low as needed
-;; (add-hook 'markdown-mode-hook 'prefer-horizontal-split)
-;; (map! :leader
-;;       :desc "Clone indirect buffer other window" "b c" #'clone-indirect-buffer-other-window)
-
 (map! :leader
       (:prefix ("w" . "window")
        :desc "Winner redo" "<right>" #'winner-redo
@@ -348,3 +309,9 @@
 (key-chord-mode 1)
 
 (setq select-enable-clipboard t)
+
+(require 'mozc)  ; or (load-file "/path/to/mozc.el")
+(setq default-input-method "japanese-mozc")
+(setq mozc-candidate-style 'overlay)
+(require 'ac-mozc)
+(define-key ac-mode-map (kbd "C-c C-SPC") 'ac-complete-mozc')
