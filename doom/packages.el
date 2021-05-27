@@ -68,3 +68,5 @@
 (package! resize-window)
 (package! tldr)
 (package! wc-mode)
+(package! fcitx)
+(package! valign)

@@ -7,6 +7,4 @@
 config_version: 2
 settings:
   content.media.audio_video_capture:
-    https://www.facebook.com: true
-  content.notifications.enabled:
-    https://www.facebook.com: true
+    https://duo.google.com: true

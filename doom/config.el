@@ -310,8 +310,4 @@
 
 (setq select-enable-clipboard t)
 
-(require 'mozc)  ; or (load-file "/path/to/mozc.el")
-(setq default-input-method "japanese-mozc")
-(setq mozc-candidate-style 'overlay)
-(require 'ac-mozc)
-(define-key ac-mode-map (kbd "C-c C-SPC") 'ac-complete-mozc')
+(setq default-input-method "japanese")

@@ -3,7 +3,6 @@
 #+STARTUP: overview
 
 * TABLE OF CONTENTS :toc:
-- [[#about-this-config][ABOUT THIS CONFIG]]
 - [[#cancelled-bookmarks-and-buffers][CANCELLED BOOKMARKS AND BUFFERS]]
 - [[#cancelled-dashboard][CANCELLED DASHBOARD]]
   - [[#configuring-dashboard][Configuring Dashboard]]
@@ -37,10 +36,7 @@
 - [[#file-templates][FILE TEMPLATES]]
 - [[#evil-keybind][EVIL KEYBIND]]
 - [[#clipboard][CLIPBOARD]]
-- [[#japanese-input-mozc][Japanese Input (Mozc)]]
-
-* ABOUT THIS CONFIG
-This is my personal Doom Emacs config.  Doom Emacs is a distribution of Emacs that uses the "evil" keybindings (Vim keybindings) and includes a number of nice extensions and a bit of configuration out of the box.  I am maintaining this config not just for myself, but also for those that want to explore some of what is possible with Emacs.  I will add a lot of examples of plugins and settings, some of them I may not even use personally.  I do this because many people following me on YouTube look at my configs as "documentation".
+- [[#japanese-input-method][JAPANESE INPUT METHOD]]
 
 * CANCELLED BOOKMARKS AND BUFFERS
 CLOSED: [2021-05-06 Thu 14:03]
@@ -592,13 +588,14 @@ Copy and paste using clipboard
 #+BEGIN_SRC emacs-lisp
 (setq select-enable-clipboard t)
 #+END_SRC
-* Japanese Input (Mozc)
-input method for Japanese using the emacs-mozc-ut2 AUR package
 
-#+BEGIN_SRC emacs-lisp
-(require 'mozc)  ; or (load-file "/path/to/mozc.el")
-(setq default-input-method "japanese-mozc")
-(setq mozc-candidate-style 'overlay)
-(require 'ac-mozc)
-(define-key ac-mode-map (kbd "C-c C-SPC") 'ac-complete-mozc')
-#+END_SRC
+* JAPANESE INPUT METHOD
+| command | description                             |
+|---------+-----------------------------------------|
+| ctrl+\  | toggle japanese input method            |
+| K       | toggle katakana when inputting hiragana |
+| space   | move between kanji option               |
+
+#+begin_src emacs-lisp
+(setq default-input-method "japanese")
+#+end_src
