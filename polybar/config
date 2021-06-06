@@ -1590,25 +1590,23 @@ enable-click = true
 enable-scroll = true
 reverse-scroll = true
 
-
 icon-0 = dev;dev
 icon-1 = sys;sys
 icon-2 = note;note
 icon-3 = www;www
-icon-4 = doc;name
+icon-4 = doc;doc
 icon-5 = mail;mail
 icon-6 = chat;chat
 icon-7 = media;media
 icon-8 = misc;misc
-icon-9 = NSP;λ
+icon-9 = NSP;
 format = <label-state>
 label-monitor = %name%
-
-label-active = {%icon%}
+label-active = { %icon% }
 label-active-foreground = ${colors.magenta}
 label-active-background = ${colors.background}
 ; label-active-underline= #6790eb
-label-active-padding = 2
+label-active-padding = 0
 
 label-occupied = %icon%
 label-occupied-foreground = ${colors.yellow}
