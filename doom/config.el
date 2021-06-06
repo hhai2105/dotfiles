@@ -301,6 +301,7 @@
        :desc "Winner undo" "<left>" #'winner-undo))
 
 (set-file-template! "/math\\.tex$" :trigger "__math.tex" :mode 'latex-mode)
+(set-file-template! "/manifest\\.json" :trigger "__manifest.json" :mode 'json-mode)
 
 (require 'key-chord)
 (key-chord-mode 1)

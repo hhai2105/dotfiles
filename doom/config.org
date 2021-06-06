@@ -11,7 +11,6 @@
   - [[#keybindings-to-open-dired][Keybindings To Open Dired]]
   - [[#keybindings-within-dired][Keybindings Within Dired]]
   - [[#keybindings-within-dired-with-peep-dired-mode-enabled][Keybindings Within Dired With Peep-Dired-Mode Enabled]]
-- [[#doom-theme][DOOM THEME]]
 - [[#emojis][EMOJIS]]
 - [[#emms][EMMS]]
 - [[#evaluate-elisp-expressions][EVALUATE ELISP EXPRESSIONS]]
@@ -135,7 +134,7 @@ Dired is the file manager within Emacs.  Below, I setup keybindings for image pr
                               ("mp4" . "mpv")))
 #+END_SRC
 
-* DOOM THEME
+ THEME
 Setting the theme to doom-one.  To try out new themes, I set a keybinding for counsel-load-theme with 'SPC h t'.
 
 #+BEGIN_SRC emacs-lisp
@@ -569,6 +568,7 @@ Basic file templates
 
 #+BEGIN_SRC emacs-lisp
 (set-file-template! "/math\\.tex$" :trigger "__math.tex" :mode 'latex-mode)
+(set-file-template! "/manifest\\.json" :trigger "__manifest.json" :mode 'json-mode)
 #+END_SRC
 
 * EVIL KEYBIND
