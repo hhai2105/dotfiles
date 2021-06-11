@@ -1,25 +1,7 @@
-;; (map! :leader
-;;       (:prefix ("b". "buffer")
-;;        :desc "List bookmarks" "L" #'list-bookmarks
-;;        :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
-
-;; (use-package dashboard
-;;   :init      ;; tweak dashboard config before loading it
-;;   (setq dashboard-set-heading-icons t)
-;;   (setq dashboard-set-file-icons t)
-;;   (setq dashboard-banner-logo-title "Emacs Is More Than A Text Editor!")
-;;   ;;(setq dashboard-startup-banner 'logo) ;; use standard emacs logo as banner
-;;   (setq dashboard-startup-banner "~/.config/doom/banner.png")  ;; use custom image as banner
-;;   (setq dashboard-center-content nil) ;; set to 't' for centered content
-;;   (setq dashboard-items '((recents . 3)
-;;                           (agenda . 3)
-;;                           (projects . 3)))
-;;   :config
-;;   (dashboard-setup-startup-hook)
-;;   (dashboard-modify-heading-icons '((recents . "file-text")
-			      ;; (bookmarks . "book"))))
-
-;; (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+(map! :leader
+      (:prefix ("b". "buffer")
+       :desc "List bookmarks" "L" #'list-bookmarks
+       :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
 
 (map! :leader
       (:prefix ("d" . "dired")
@@ -50,8 +32,8 @@
 
 (setq doom-theme 'doom-outrun-electric)
 
-;; (use-package emojify
-;;   :hook (after-init . global-emojify-mode))
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
 
 (emms-all)
 (emms-default-players)
@@ -78,14 +60,6 @@
        :desc "Evaluate elisp expression" "e" #'eval-expression
        :desc "Evaluate last sexpression" "l" #'eval-last-sexp
        :desc "Evaluate elisp in region" "r" #'eval-region))
-
-;; (setq browse-url-browser-function 'eww-browse-url)
-;; (map! :leader
-;;       :desc "Search web for text between BEG/END"
-;;       "s w" #'eww-search-words
-;;       (:prefix ("e" . "evaluate/EWW")
-;;        :desc "Eww web browser" "w" #'eww
-;;        :desc "Eww reload page" "R" #'eww-reload))
 
 (setq doom-font (font-spec :family "monospace" :size 20)
       doom-variable-pitch-font (font-spec :family "Ubuntu" :size 20)
@@ -231,8 +205,8 @@
       :desc "org babel tangle" "m B" #'org-babel-tangle)
 (after! org
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-   (setq org-directory "~/Org/"
-         org-agenda-files '("~/Org/agenda.org")
+   (setq org-directory "~/org/"
+         org-agenda-files '("~/org/agenda.org")
          org-default-notes-file (expand-file-name "notes.org" org-directory)
          org-ellipsis " ▼ "
          org-log-done 'time
@@ -250,10 +224,6 @@
             org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
           '((sequence
              "TODO(t)"           ; A task that is ready to be tackled
-             "BLOG(b)"           ; Blog writing assignments
-             "GYM(g)"            ; Things to accomplish at the gym
-             "PROJ(p)"           ; A project that contains other tasks
-             "VIDEO(v)"          ; Video assignments
              "WAIT(w)"           ; Something is holding up this task
              "|"                 ; The pipe necessary to separate "active" states and "inactive" states
              "DONE(d)"           ; Task has been completed
@@ -276,8 +246,8 @@
 ;; (map! :leader
       ;; :desc "Ssh into my nextcloud" "\\ n" #'(lambda () (interactive) (find-file "/scp:derek@distrotube.net"))))
 
-;; (setq shell-file-name "/bin/bash"
-;;       vterm-max-scrollback 5000)
+(setq shell-file-name "/usr/bin/zsh"
+      vterm-max-scrollback 5000)
 ;; (setq eshell-rc-script "~/.config/doom/eshell/profile"
 ;;       eshell-aliases-file "~/.config/doom/eshell/aliases"
 ;;       eshell-history-size 5000

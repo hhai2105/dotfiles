@@ -3,10 +3,7 @@
 #+STARTUP: overview
 
 * TABLE OF CONTENTS :toc:
-- [[#cancelled-bookmarks-and-buffers][CANCELLED BOOKMARKS AND BUFFERS]]
-- [[#cancelled-dashboard][CANCELLED DASHBOARD]]
-  - [[#configuring-dashboard][Configuring Dashboard]]
-  - [[#dashboard-in-emacsclient][Dashboard in Emacsclient]]
+- [[#bookmarks-and-buffers][BOOKMARKS AND BUFFERS]]
 - [[#dired][DIRED]]
   - [[#keybindings-to-open-dired][Keybindings To Open Dired]]
   - [[#keybindings-within-dired][Keybindings Within Dired]]
@@ -14,22 +11,16 @@
 - [[#emojis][EMOJIS]]
 - [[#emms][EMMS]]
 - [[#evaluate-elisp-expressions][EVALUATE ELISP EXPRESSIONS]]
-- [[#cancelled-eww][CANCELLED EWW]]
 - [[#fonts][FONTS]]
 - [[#ivy][IVY]]
   - [[#ivy-posframe][IVY-POSFRAME]]
   - [[#ivy-keybindings][IVY KEYBINDINGS]]
 - [[#line-settings][LINE SETTINGS]]
-- [[#mu4e][MU4E]]
-  - [[#-configure-for-xoath2][: Configure for xoath2]]
-  - [[#setting-up-environment-with-main-account][Setting Up Environment With Main Account]]
-  - [[#setting-up-multiple-accounts][Setting Up Multiple Accounts]]
-  - [[#function-to-facilitate-switching-between-accounts][Function To Facilitate Switching Between Accounts]]
 - [[#open-specific-files][OPEN SPECIFIC FILES]]
 - [[#org-mode][ORG MODE]]
 - [[#registers][REGISTERS]]
 - [[#cancelled-remote-connections][CANCELLED REMOTE CONNECTIONS]]
-- [[#cancelled-shells][CANCELLED SHELLS]]
+- [[#shells][SHELLS]]
 - [[#latex][LATEX]]
 - [[#winner-mode][WINNER MODE]]
 - [[#file-templates][FILE TEMPLATES]]
@@ -37,49 +28,15 @@
 - [[#clipboard][CLIPBOARD]]
 - [[#japanese-input-method][JAPANESE INPUT METHOD]]
 
-* CANCELLED BOOKMARKS AND BUFFERS
-CLOSED: [2021-05-06 Thu 14:03]
+* BOOKMARKS AND BUFFERS
 Doom Emacs uses 'SPC b' for keybindings related to bookmarks and buffers.  Bookmarks are somewhat like registers in that they record positions you can jump to.  Unlike registers, they have long names, and they persist automatically from one Emacs session to the next. The prototypical use of bookmarks is to record where you were reading in various files.  Regarding /buffers/, the text you are editing in Emacs resides in an object called a /buffer/. Each time you visit a file, a buffer is used to hold the file’s text. Each time you invoke Dired, a buffer is used to hold the directory listing.
 
 #+BEGIN_SRC emacs-lisp
-;; (map! :leader
-;;       (:prefix ("b". "buffer")
-;;        :desc "List bookmarks" "L" #'list-bookmarks
-;;        :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
+(map! :leader
+      (:prefix ("b". "buffer")
+       :desc "List bookmarks" "L" #'list-bookmarks
+       :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
 #+END_SRC
-
-* CANCELLED DASHBOARD
-CLOSED: [2021-05-06 Thu 14:03]
-Emacs Dashboard is an extensible startup screen showing you recent files, bookmarks, agenda items and an Emacs banner.
-
-** Configuring Dashboard
-#+begin_src emacs-lisp
-;; (use-package dashboard
-;;   :init      ;; tweak dashboard config before loading it
-;;   (setq dashboard-set-heading-icons t)
-;;   (setq dashboard-set-file-icons t)
-;;   (setq dashboard-banner-logo-title "Emacs Is More Than A Text Editor!")
-;;   ;;(setq dashboard-startup-banner 'logo) ;; use standard emacs logo as banner
-;;   (setq dashboard-startup-banner "~/.config/doom/banner.png")  ;; use custom image as banner
-;;   (setq dashboard-center-content nil) ;; set to 't' for centered content
-;;   (setq dashboard-items '((recents . 3)
-;;                           (agenda . 3)
-;;                           (projects . 3)))
-;;   :config
-;;   (dashboard-setup-startup-hook)
-;;   (dashboard-modify-heading-icons '((recents . "file-text")
-			      ;; (bookmarks . "book"))))
-#+end_src
-
-** Dashboard in Emacsclient
-This setting ensures that emacsclient always opens on *dashboard* rather than *scratch*.
-#+begin_src emacs-lisp
-;; (setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-#+end_src
-
-#+RESULTS:
-| lambda | nil | (get-buffer *dashboard*) |
-
 * DIRED
 Dired is the file manager within Emacs.  Below, I setup keybindings for image previews (peep-dired).  Doom Emacs does not use 'SPC d' for any of its keybindings, so I've chosen the format of 'SPC d' plus 'key'.
 
@@ -145,8 +102,8 @@ Setting the theme to doom-one.  To try out new themes, I set a keybinding for co
 Emojify is an Emacs extension to display emojis. It can display github style emojis like :smile: or plain ascii ones like :).
 
 #+begin_src emacs-lisp
-;; (use-package emojify
-;;   :hook (after-init . global-emojify-mode))
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
 #+end_src
 
 * EMMS
@@ -199,20 +156,6 @@ Changing some keybindings from their defaults to better fit with Doom Emacs, and
        :desc "Evaluate elisp expression" "e" #'eval-expression
        :desc "Evaluate last sexpression" "l" #'eval-last-sexp
        :desc "Evaluate elisp in region" "r" #'eval-region))
-#+END_SRC
-
-* CANCELLED EWW
-CLOSED: [2021-05-07 Fri 16:39]
-EWW is the Emacs Web Wowser, the builtin browser in Emacs.  Below I set urls to open in a specific browser (eww) with browse-url-browser-function.  By default, Doom Emacs does not use 'SPC e' for anything, so I choose to use the format 'SPC e' plus 'key' for these (I also use 'SPC e' for 'eval' keybindings).  I chose to use 'SPC s w' for eww-search-words because Doom Emacs uses 'SPC s' for 'search' commands.
-
-#+BEGIN_SRC emacs-lisp
-;; (setq browse-url-browser-function 'eww-browse-url)
-;; (map! :leader
-;;       :desc "Search web for text between BEG/END"
-;;       "s w" #'eww-search-words
-;;       (:prefix ("e" . "evaluate/EWW")
-;;        :desc "Eww web browser" "w" #'eww
-;;        :desc "Eww reload page" "R" #'eww-reload))
 #+END_SRC
 
 * FONTS
@@ -308,114 +251,6 @@ I set comment-line to 'SPC TAB TAB' which is a rather comfortable keybinding for
        :desc "Toggle truncate lines" "t" #'toggle-truncate-lines))
 #+END_SRC
 
-* TODO MU4E
-Setting up mu4e which is an email client that works within emacs.  You must install mu4e and mbsync through your Linux distribution's package manager. Setting up smtp for sending mail. Make sure the gnutls command line utils are installed. Package 'gnutls-bin' in Debian/Ubuntu, and 'gnutls' in Arch.
-
-** TODO : Configure for xoath2
-
-** Setting Up Environment With Main Account
-I will be setting up mu4e to use three different email addresses.  This source block contains default settings and fallback settings.
-
-#+BEGIN_SRC emacs-lisp
-;; (require 'smtpmail)
-(setq user-mail-address "hhai2105@gmail.com"
-      user-full-name  "Hai Nguyen"
-      ;; I have my mbsyncrc in a different folder on my system, to keep it separate from the
-      ;; mbsyncrc available publicly in my dotfiles. You MUST edit the following line.
-      ;; Be sure that the following command is: "mbsync -c ~/.config/mu4e/mbsyncrc -a"
-      ;; mu4e-get-mail-command "mbsync -c ~/.config/mu4e/mbsyncrc -a"
-      ;; mu4e-update-interval  300
-      ;; mu4e-main-buffer-hide-personal-addresses t
-      ;; message-send-mail-function 'smtpmail-send-it
-      ;; starttls-use-gnutls t
-      ;; smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-      ;; mu4e-sent-folder "/hhai2105/Sent"
-      ;; mu4e-drafts-folder "/hhai2105/Drafts"
-      ;; mu4e-trash-folder "/hhai2105/Trash"
-      ;; mu4e-maildir-shortcuts
-      ;; '(("/hhai2105/Inbox"      . ?i)
-      ;;   ("/hhai2105/Sent Items" . ?s)
-      ;;   ("/hhai2105/Drafts"     . ?d)
-        ;; ("/hhai2105/Trash"      . ?t))
-      )
-#+END_SRC
-
-** Setting Up Multiple Accounts
-The settings below are specific to each of three different email accounts.  These settings are fictional and are here for documentation purposes.  Hence, I have this source block entirely commented out.  Now, I do use a source code block similar to the one below, but I don't want to share it publicly.  Keep reading to see how I handle this.
-
-#+BEGIN_SRC emacs-lisp
-(defvar my-mu4e-account-alist
-  '(("acc1-domain"
-     (mu4e-sent-folder "/hha2105/Sent")
-     (mu4e-drafts-folder "/hhai2105/Drafts")
-     (mu4e-trash-folder "/hhai2105/Trash")
-     (mu4e-compose-signature
-       (concat
-         "Hai Nguyen\n"
-         "hhai2105@gmail.com\n"))
-     (user-mail-address "hha2105@gmail.com")
-     (smtpmail-default-smtp-server "smtp.googlemail.com")
-     (smtpmail-smtp-server "smtp.googlemail.com")
-     (smtpmail-smtp-user "hhai2105@gmail.com")
-     (smtpmail-stream-type starttls)
-     (smtpmail-smtp-service 587))
-    ("haihnguyen"
-     (mu4e-sent-folder "/haihnguyen/Sent")
-     (mu4e-drafts-folder "/haihnguyen/Drafts")
-     (mu4e-trash-folder "/haihnguyen/Trash")
-     (mu4e-compose-signature
-       (concat
-         "Hai Nguyen\n"
-         "haihnguyen@umass.edu\n"))
-     (user-mail-address "haihnguyen@umass.edu")
-     (smtpmail-default-smtp-server "smtp.googlemail.com")
-     (smtpmail-smtp-server "smtp.googlemail.com")
-     (smtpmail-smtp-user "haihnguyen@umass.edu")
-     (smtpmail-stream-type starttls)
-     (smtpmail-smtp-service 465))
-    ;; ("acc3-domain"
-    ;;  (mu4e-sent-folder "/acc3-domain/Sent")
-    ;;  (mu4e-drafts-folder "/acc3-domain/Drafts")
-    ;;  (mu4e-trash-folder "/acc3-domain/Trash")
-    ;;  (mu4e-compose-signature
-    ;;    (concat
-    ;;      "John Boy\n"
-    ;;      "acc3@domain.com\n"))
-    ;;  (user-mail-address "acc3@domain.com")
-    ;;  (smtpmail-default-smtp-server "smtp.domain.com")
-    ;;  (smtpmail-smtp-server "smtp.domain.com")
-    ;;  (smtpmail-smtp-user "acc3@domain.com")
-    ;;  (smtpmail-stream-type starttls)
-    ;;  (smtpmail-smtp-service 587))
-    ))
-#+END_SRC
-
-** Function To Facilitate Switching Between Accounts
-The following function can be used to select an account.  This function then needs to be added to mu4e-compose-pre-hook,
-
-#+BEGIN_SRC emacs-lisp
-(defun my-mu4e-set-account ()
-  "Set the account for composing a message."
-  (let* ((account
-          (if mu4e-compose-parent-message
-              (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
-                (string-match "/\\(.*?\\)/" maildir)
-                (match-string 1 maildir))
-            (completing-read (format "Compose with account: (%s) "
-                                     (mapconcat #'(lambda (var) (car var))
-                                                my-mu4e-account-alist "/"))
-                             (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
-                             nil t nil nil (caar my-mu4e-account-alist))))
-         (account-vars (cdr (assoc account my-mu4e-account-alist))))
-    (if account-vars
-        (mapc #'(lambda (var)
-                  (set (car var) (cadr var)))
-              account-vars)
-      (error "No email account found"))))
-
-(add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
-#+END_SRC
-
 * OPEN SPECIFIC FILES
 Keybindings to open files that I work with all the time using the find-file command, which is the interactive file search that opens with 'C-x C-f' in GNU Emacs or 'SPC f f' in Doom Emacs.  These keybindings use find-file non-interactively since we specify exactly what file to open.  The format I use for these bindings is 'SPC -' plus 'key' since Doom Emacs does not use these keybindings.
 
@@ -446,8 +281,8 @@ Keybindings to open files that I work with all the time using the find-file comm
       :desc "org babel tangle" "m B" #'org-babel-tangle)
 (after! org
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-   (setq org-directory "~/Org/"
-         org-agenda-files '("~/Org/agenda.org")
+   (setq org-directory "~/org/"
+         org-agenda-files '("~/org/agenda.org")
          org-default-notes-file (expand-file-name "notes.org" org-directory)
          org-ellipsis " ▼ "
          org-log-done 'time
@@ -465,16 +300,15 @@ Keybindings to open files that I work with all the time using the find-file comm
             org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
           '((sequence
              "TODO(t)"           ; A task that is ready to be tackled
-             "BLOG(b)"           ; Blog writing assignments
-             "GYM(g)"            ; Things to accomplish at the gym
-             "PROJ(p)"           ; A project that contains other tasks
-             "VIDEO(v)"          ; Video assignments
              "WAIT(w)"           ; Something is holding up this task
              "|"                 ; The pipe necessary to separate "active" states and "inactive" states
              "DONE(d)"           ; Task has been completed
              "CANCELLED(c)" )))) ; Task has been cancelled
 
 #+END_SRC
+
+#+RESULTS:
+| sequence | TODO(t) | WAIT(w) |   |   | DONE(d) | CANCELLED(c) |
 
 * REGISTERS
 Emacs registers are compartments where you can save text, rectangles and positions for later use. Once you save text or a rectangle in a register, you can copy it into the buffer once or many times; once you save a position in a register, you can jump back to that position once or many times.  The default GNU Emacs keybindings for these commands (with the exception of counsel-register) involves 'C-x r' followed by one or more other keys.  I wanted to make this a little more user friendly, and since I am using Doom Emacs, I choose to replace the 'C-x r' part of the key chords with 'SPC r'.
@@ -523,26 +357,14 @@ Keybindings for ssh'ing into remote machines.  By default, Doom Emacs does not u
       ;; :desc "Ssh into my nextcloud" "\\ n" #'(lambda () (interactive) (find-file "/scp:derek@distrotube.net"))))
 #+END_SRC
 
-* CANCELLED SHELLS
-CLOSED: [2021-05-06 Thu 14:06]
+* SHELLS
 Settings for the various shells and terminal emulators within Emacs.
 + 'shell-file-name' -- sets the shell to be used in M-x shell, M-x term, M-x ansi-term and M-x vterm.
 + 'eshell-aliases-file' -- sets an aliases file for the eshell.
 
 #+BEGIN_SRC emacs-lisp
-;; (setq shell-file-name "/bin/bash"
-;;       vterm-max-scrollback 5000)
-;; (setq eshell-rc-script "~/.config/doom/eshell/profile"
-;;       eshell-aliases-file "~/.config/doom/eshell/aliases"
-;;       eshell-history-size 5000
-;;       eshell-buffer-maximum-lines 5000
-;;       eshell-hist-ignoredups t
-;;       eshell-scroll-to-bottom-on-input t
-;;       eshell-destroy-buffer-when-process-dies t
-;;       eshell-visual-commands'("bash" "fish" "htop" "ssh" "top" "zsh"))
-;; (map! :leader
-;;       :desc "Eshell" "e s" #'eshell
-;;       :desc "Counsel eshell history" "e h" #'counsel-esh-history)
+(setq shell-file-name "/usr/bin/zsh"
+      vterm-max-scrollback 5000)
 #+END_SRC
 
 * LATEX

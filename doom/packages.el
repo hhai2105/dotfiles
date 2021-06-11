@@ -70,3 +70,4 @@
 (package! wc-mode)
 (package! fcitx)
 (package! valign)
+(package! key-chord)
