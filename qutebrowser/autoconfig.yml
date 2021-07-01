@@ -6,5 +6,5 @@
 
 config_version: 2
 settings:
-  content.media.audio_video_capture:
-    https://duo.google.com: true
+  content.notifications.enabled:
+    https://www.facebook.com: false

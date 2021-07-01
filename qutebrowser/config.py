@@ -17,6 +17,18 @@
 # """Block YT ads.
 
 # I DO NOT USE THIS SCRIPT ANYMORE, in favor of a real adblocker."""
+from qutebrowser.api import interceptor
+
+def filter_yt(info: interceptor.Request):
+    url = info.request_url
+    if (
+            url.host() == "www.youtube.com"
+            and url.path() == "/get_video_info"
+            and "&adformat=" in url.query()
+    ):
+        info.block()
+
+interceptor.register(filter_yt)
 
 config.load_autoconfig(False)
 
@@ -33,7 +45,6 @@ c.aliases = {
     'chromium': 'spawn --detach chromium {url}',
     'firefox': 'spawn --detach firefox {url}',
     'incognito': 'open --private',
-    'bitwarden': 'hint --first inputs ;; spawn --userscript qute-lastpass',
     'mpv': 'spawn --detach mpv {url}',
     'o': 'open',
     'qrcode': 'spawn alacritty -e watch --color -t -x qrcode-terminal \"{url}\"'
@@ -378,7 +389,7 @@ c.colors.tabs.pinned.selected.even.bg = '#282c34'
 # font setting, it's replaced with the fonts listed here. If set to an
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
-c.fonts.default_family = '"SauceCodePro Nerd Font"'
+c.fonts.default_family = '"monospace Font"'
 
 # Default font size to use. Whenever "default_size" is used in a font
 # setting, it's replaced with the size listed here. Valid values are
@@ -389,11 +400,11 @@ c.fonts.default_size = '13pt'
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = '13pt "SauceCodePro Nerd Font"'
+c.fonts.completion.entry = '13pt "monospace Font"'
 
 # Font used for the debugging console.
 # Type: Font
-c.fonts.debug_console = '13pt "SauceCodePro Nerd Font"'
+c.fonts.debug_console = '13pt "monospace Font"'
 
 # Font used for prompts.
 # Type: Font
@@ -401,7 +412,7 @@ c.fonts.prompts = 'default_size sans-serif'
 
 # Font used in the statusbar.
 # Type: Font
-c.fonts.statusbar = '13pt "SauceCodePro Nerd Font"'
+c.fonts.statusbar = '13pt "monospace Font"'
 
 # Bindings to use dmenu rather than qutebrowser's builtin search.
 #config.bind('o', 'spawn --userscript dmenu-open')
