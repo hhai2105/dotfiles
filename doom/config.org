@@ -169,8 +169,9 @@ Settings related to fonts within Doom Emacs:
 
 #+BEGIN_SRC emacs-lisp
 (setq doom-font (font-spec :family "monospace" :size 20)
-      doom-variable-pitch-font (font-spec :family "Ubuntu" :size 20)
-      doom-big-font (font-spec :family "Source Code Pro" :size 24))
+      doom-variable-pitch-font (font-spec :family "monospace" :size 20)
+      doom-big-font (font-spec :family "monospace" :size 24)
+      )
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))

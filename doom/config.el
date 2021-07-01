@@ -62,8 +62,9 @@
        :desc "Evaluate elisp in region" "r" #'eval-region))
 
 (setq doom-font (font-spec :family "monospace" :size 20)
-      doom-variable-pitch-font (font-spec :family "Ubuntu" :size 20)
-      doom-big-font (font-spec :family "Source Code Pro" :size 24))
+      doom-variable-pitch-font (font-spec :family "monospace" :size 20)
+      doom-big-font (font-spec :family "monospace" :size 24)
+      )
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -103,94 +104,6 @@
        :desc "Toggle line highlight in frame" "h" #'hl-line-mode
        :desc "Toggle line highlight globally" "H" #'global-hl-line-mode
        :desc "Toggle truncate lines" "t" #'toggle-truncate-lines))
-
-;; (require 'smtpmail)
-(setq user-mail-address "hhai2105@gmail.com"
-      user-full-name  "Hai Nguyen"
-      ;; I have my mbsyncrc in a different folder on my system, to keep it separate from the
-      ;; mbsyncrc available publicly in my dotfiles. You MUST edit the following line.
-      ;; Be sure that the following command is: "mbsync -c ~/.config/mu4e/mbsyncrc -a"
-      ;; mu4e-get-mail-command "mbsync -c ~/.config/mu4e/mbsyncrc -a"
-      ;; mu4e-update-interval  300
-      ;; mu4e-main-buffer-hide-personal-addresses t
-      ;; message-send-mail-function 'smtpmail-send-it
-      ;; starttls-use-gnutls t
-      ;; smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-      ;; mu4e-sent-folder "/hhai2105/Sent"
-      ;; mu4e-drafts-folder "/hhai2105/Drafts"
-      ;; mu4e-trash-folder "/hhai2105/Trash"
-      ;; mu4e-maildir-shortcuts
-      ;; '(("/hhai2105/Inbox"      . ?i)
-      ;;   ("/hhai2105/Sent Items" . ?s)
-      ;;   ("/hhai2105/Drafts"     . ?d)
-        ;; ("/hhai2105/Trash"      . ?t))
-      )
-
-(defvar my-mu4e-account-alist
-  '(("acc1-domain"
-     (mu4e-sent-folder "/hha2105/Sent")
-     (mu4e-drafts-folder "/hhai2105/Drafts")
-     (mu4e-trash-folder "/hhai2105/Trash")
-     (mu4e-compose-signature
-       (concat
-         "Hai Nguyen\n"
-         "hhai2105@gmail.com\n"))
-     (user-mail-address "hha2105@gmail.com")
-     (smtpmail-default-smtp-server "smtp.googlemail.com")
-     (smtpmail-smtp-server "smtp.googlemail.com")
-     (smtpmail-smtp-user "hhai2105@gmail.com")
-     (smtpmail-stream-type starttls)
-     (smtpmail-smtp-service 587))
-    ("haihnguyen"
-     (mu4e-sent-folder "/haihnguyen/Sent")
-     (mu4e-drafts-folder "/haihnguyen/Drafts")
-     (mu4e-trash-folder "/haihnguyen/Trash")
-     (mu4e-compose-signature
-       (concat
-         "Hai Nguyen\n"
-         "haihnguyen@umass.edu\n"))
-     (user-mail-address "haihnguyen@umass.edu")
-     (smtpmail-default-smtp-server "smtp.googlemail.com")
-     (smtpmail-smtp-server "smtp.googlemail.com")
-     (smtpmail-smtp-user "haihnguyen@umass.edu")
-     (smtpmail-stream-type starttls)
-     (smtpmail-smtp-service 465))
-    ;; ("acc3-domain"
-    ;;  (mu4e-sent-folder "/acc3-domain/Sent")
-    ;;  (mu4e-drafts-folder "/acc3-domain/Drafts")
-    ;;  (mu4e-trash-folder "/acc3-domain/Trash")
-    ;;  (mu4e-compose-signature
-    ;;    (concat
-    ;;      "John Boy\n"
-    ;;      "acc3@domain.com\n"))
-    ;;  (user-mail-address "acc3@domain.com")
-    ;;  (smtpmail-default-smtp-server "smtp.domain.com")
-    ;;  (smtpmail-smtp-server "smtp.domain.com")
-    ;;  (smtpmail-smtp-user "acc3@domain.com")
-    ;;  (smtpmail-stream-type starttls)
-    ;;  (smtpmail-smtp-service 587))
-    ))
-
-(defun my-mu4e-set-account ()
-  "Set the account for composing a message."
-  (let* ((account
-          (if mu4e-compose-parent-message
-              (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
-                (string-match "/\\(.*?\\)/" maildir)
-                (match-string 1 maildir))
-            (completing-read (format "Compose with account: (%s) "
-                                     (mapconcat #'(lambda (var) (car var))
-                                                my-mu4e-account-alist "/"))
-                             (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
-                             nil t nil nil (caar my-mu4e-account-alist))))
-         (account-vars (cdr (assoc account my-mu4e-account-alist))))
-    (if account-vars
-        (mapc #'(lambda (var)
-                  (set (car var) (cadr var)))
-              account-vars)
-      (error "No email account found"))))
-
-(add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
 
 (map! :leader
       (:prefix ("-" . "open file")
@@ -248,17 +161,6 @@
 
 (setq shell-file-name "/usr/bin/zsh"
       vterm-max-scrollback 5000)
-;; (setq eshell-rc-script "~/.config/doom/eshell/profile"
-;;       eshell-aliases-file "~/.config/doom/eshell/aliases"
-;;       eshell-history-size 5000
-;;       eshell-buffer-maximum-lines 5000
-;;       eshell-hist-ignoredups t
-;;       eshell-scroll-to-bottom-on-input t
-;;       eshell-destroy-buffer-when-process-dies t
-;;       eshell-visual-commands'("bash" "fish" "htop" "ssh" "top" "zsh"))
-;; (map! :leader
-;;       :desc "Eshell" "e s" #'eshell
-;;       :desc "Counsel eshell history" "e h" #'counsel-esh-history)
 
 (require 'tex-site)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
