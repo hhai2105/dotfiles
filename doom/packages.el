@@ -71,3 +71,4 @@
 (package! fcitx)
 (package! valign)
 (package! key-chord)
+(package! emacs-everywhere)

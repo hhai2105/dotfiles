@@ -107,7 +107,7 @@
 
 (map! :leader
       (:prefix ("-" . "open file")
-       :desc "Edit agenda file" "a" #'(lambda () (interactive) (find-file "~/Org/agenda.org"))
+       :desc "Edit agenda file" "a" #'(lambda () (interactive) (find-file "~/orgfiles/agenda.org"))
        :desc "Edit doom config.org" "c" #'(lambda () (interactive) (find-file "~/.config/doom/config.org"))
        :desc "Edit eshell aliases" "e a" #'(lambda () (interactive) (find-file "~/.config/doom/eshell/aliases"))
        :desc "Edit eshell aliases" "e p" #'(lambda () (interactive) (find-file "~/.config/doom/eshell/profile"))
@@ -118,12 +118,12 @@
       :desc "org babel tangle" "m B" #'org-babel-tangle)
 (after! org
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-   (setq org-directory "~/org/"
-         org-agenda-files '("~/org/agenda.org")
+   (setq org-directory "~/orgfiles/"
+         org-agenda-files '("~/orgfiles/agenda.org")
          org-default-notes-file (expand-file-name "notes.org" org-directory)
          org-ellipsis " ▼ "
          org-log-done 'time
-         org-journal-dir "~/org/journal/"
+         org-journal-dir "~/orgfiles/journal/"
          org-journal-date-format "%B %d, %Y (%A) "
          org-journal-file-format "%Y-%m-%d.org"
          org-hide-emphasis-markers t
@@ -182,5 +182,11 @@
 (key-chord-mode 1)
 
 (setq select-enable-clipboard t)
+
+(add-hook 'pdf-view-mode-hook
+          (lambda ()
+        (set (make-local-variable 'evil-normal-state-cursor) (list nil))
+        (internal-show-cursor nil nil))
+        )
 
 (setq default-input-method "japanese")
