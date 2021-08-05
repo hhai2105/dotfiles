@@ -1,0 +1,172 @@
+/*-*- mode: css; -*-*/
+/************************************************
+ * Rofi theme: Outrun-electric (based on Doom Emacs' Outrun Electric)
+ * User: hhai2105 
+ * Copyright: 2021 hhai2105 
+ ***********************************************/
+* {
+    bg:         #0c0a20;
+    bg-alt:     #090819;
+    base0:      #131033;
+    base1:      #1f1147;
+    base2:      #110d26;
+    base3:      #3b4167;
+    base4:      #2d2844;
+    base5:      #BA45A3;
+    base6:      #6A6EA3;
+    base7:      #6564D1;
+    base8:      #919ad9;
+    fg-alt:     #7984D1;
+    fg:         #f2f3f7;
+    grey:       #546A90;
+    red:        #e61f44;
+    orange:     #cf433e;
+    green:      #a7da1e;
+    teal:       #A875FF;
+    yellow:     #ffd400;
+    blue:       #1ea8fc;
+    dark-blue:  #3F88AD;
+    magenta:    #ff2afc;
+    violet:     #df85ff;
+    cyan:       #42c6ff;
+    dark-cyan:  #204052;
+
+    border-color:                @bg;
+    background:                  @bg;
+    separatorcolor:              @violet;
+    background-color:            @bg;
+
+    normal-foreground:           @fg;
+    alternate-normal-foreground: @fg;
+    normal-background:           @bg;
+    alternate-normal-background: @bg-alt;
+    selected-normal-background:  @magenta;
+    selected-normal-foreground:  @bg;
+
+    active-background:           @bg;
+    alternate-active-background: @bg-alt;
+    active-foreground:           @blue;
+    alternate-active-foreground: @cyan;
+    selected-active-background:  @blue;
+    selected-active-foreground:  @bg;
+
+    urgent-background:           @bg;
+    alternate-urgent-background: @bg-alt;
+    urgent-foreground:           @red;
+    alternate-urgent-foreground: @orange;
+    selected-urgent-foreground:  @red;
+    selected-urgent-background:  @bg;
+    spacing:                     5;
+    lines: 5;
+    font: "Noto Sans Mono 12";
+}
+#window {
+    background-color: @background;
+    border:           0;
+    padding:          5;
+}
+#mainbox {
+    border:  0;
+    padding: 0;
+}
+#message {
+    border:       2px 0px 0px ;
+    border-color: @separatorcolor;
+    padding:      1px ;
+}
+#textbox {
+    text-color: @foreground;
+}
+#listview {
+    fixed-height: 0;
+    border:       2px 0px 0px ;
+    border-color: @separatorcolor;
+    spacing:      2px ;
+    scrollbar:    false;
+    padding:      2px 0px 0px ;
+}
+#element {
+    border:  0;
+    padding: 5px ;
+}
+#element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+#element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+#element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+#element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+#element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+#element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+#element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+#element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+#element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
+#scrollbar {
+    width:        4px ;
+    border:       0;
+    handle-color: @normal-foreground;
+    handle-width: 8px ;
+    padding:      0;
+}
+#mode-switcher {
+    border:       2px 0px 0px ;
+    border-color: @separatorcolor;
+}
+#button {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+#button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+#inputbar {
+    spacing:    0;
+    text-color: @normal-foreground;
+    padding:    1px ;
+}
+#case-indicator {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+#entry {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+#prompt {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+#inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+#textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @normal-foreground;
+}
