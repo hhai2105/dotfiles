@@ -1,27 +1,31 @@
 #!/usr/bin/env zsh
-
-maxVol=100
-minVol=0
+interval=5 
+maxVolBeforeAdj=$((100 - interval))
+minVolBeforeAdj=$((0 + interval))
 VolUp(){
     curvol=$(deadbeef --volume | grep -Po ".{0,3}%" | sed "s/%//g")
-    if [ $curvol -ge $maxVol ]
+    if [ $curvol -gt $maxVolBeforeAdj ]
     then
+	deadbeef --volume 100
 	exit;
     fi
-    deadbeef --volume $(( curvol + 1 ))
+    deadbeef --volume $(( curvol + interval ))
 }
+
 VolDown(){
     curvol=$(deadbeef --volume | grep -Po ".{0,3}%" | sed "s/%//g")
-    if [ $curvol -le $minVol ]
+    if [ $curvol -lt $minVolBeforeAdj ]
     then
+	deadbeef --volume 0
 	exit;
     fi
-    deadbeef --volume $(( curvol - 1 ))
+    deadbeef --volume $(( curvol - interval ))
 }
+
 play-pause(){
     deadbeef --play-pause
-    
 }
+
 main() {
     OUTPUT=$(deadbeef --nowplaying-tf "%artist% - %title% \[ %playback_time% - %length% \]")
     echo "${OUTPUT}"
