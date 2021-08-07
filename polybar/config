@@ -61,7 +61,6 @@ background = #bb090819
 ; background = #6564D1
 ; background = #919ad9
 fg-alt          = #7984D1
-
 fg              = #f2f3f7
 grey            = #546A90
 red             = #e61f44
@@ -703,7 +702,6 @@ height = 35
 radius = 0.0
 fixed-center = true
 bottom = false
-separator = |
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -730,15 +728,16 @@ enable-ipc = true
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
 font-0 = "Noto Sans:size=17;0"
+font-6 = "Noto Serif JP:size=17;"
 font-1 = "FontAwesome:size=17;0"
 font-2 = "Noto Sans:size=17;0"
 font-3 = "Noto Sans Mono:size=17;0"
 font-4 = "FontAwesome5Brands:size=17;0"
 ; for color emoji
-; font-5 = "NotoEmoji:scale=8;"
+font-5 = "NotoEmoji:scale=8;"
 
 modules-left = ewmh
-modules-center =
+modules-center = deadbeef-play-pause deadbeef
 modules-right = pavolume battery date
 
 tray-detached = false
@@ -1699,7 +1698,7 @@ format-underline = #0084FF
 [module/jgmenu]
 type = custom/script
 interval = 120
-exec = echo "ArcoLinux"
+exec = echo "Arch Linux"
 click-left = "jgmenu_run >/dev/null 2>&1 &"
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -2167,7 +2166,7 @@ label-disconnected-foreground = ${colors.foreground}
 [module/wireless-network]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
-interface = wlp3s0
+interface = wlan0 
 interval = 3.0
 label-connected = %essid%
 
@@ -2264,3 +2263,23 @@ format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
 ###############################################################################
+
+[module/blueman]
+; using blueman
+
+###############################################################################
+
+[module/deadbeef]
+type = custom/script
+
+exec = ~/.config/polybar/scripts/deadbeef.sh
+
+label = %output%
+format-prefix = " "
+
+format =<icon> <label>
+; output continuous content
+tail = true
+format-foreground = ${colors.magenta}
+format-background = ${colors.background}
+interval = 1
