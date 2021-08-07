@@ -727,12 +727,12 @@ module-margin-right = 3
 enable-ipc = true
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans:size=17;0"
-font-6 = "Noto Serif JP:size=17;"
-font-1 = "FontAwesome:size=17;0"
-font-2 = "Noto Sans:size=17;0"
-font-3 = "Noto Sans Mono:size=17;0"
-font-4 = "FontAwesome5Brands:size=17;0"
+font-0 = "Noto Sans:size=15;0"
+font-6 = "Noto Serif JP:size=15;"
+font-1 = "FontAwesome:size=15;0"
+font-2 = "Noto Sans:size=15;0"
+font-3 = "Noto Sans Mono:size=15;0"
+font-4 = "FontAwesome5Brands:size=15;0"
 ; for color emoji
 font-5 = "NotoEmoji:scale=8;"
 
@@ -2274,7 +2274,7 @@ type = custom/script
 
 exec = ~/.config/polybar/scripts/deadbeef.sh
 
-label = %output%
+label = %output:0:150%
 format-prefix = " "
 
 format =<icon> <label>
@@ -2283,3 +2283,6 @@ tail = true
 format-foreground = ${colors.magenta}
 format-background = ${colors.background}
 interval = 1
+click-left = ~/.config/polybar/scripts/deadbeef.sh --toggle
+scroll-up = ~/.config/polybar/scripts/deadbeef.sh --up
+scroll-down = ~/.config/polybar/scripts/deadbeef.sh --down
