@@ -37,9 +37,6 @@ config.load_autoconfig(False)
 # Type: Dict
 c.aliases = {}
 c.aliases = {
-    'q': 'quit',
-    'w': 'session-save',
-    'wq': 'quit --save',
     'adblock-toggle': 'config-cycle -t content.blocking.enabled',
     'dark-toggle': 'config-cycle -t colors.webpage.darkmode.enabled',
     'chromium': 'spawn --detach chromium {url}',
@@ -245,7 +242,9 @@ c.url.default_page = 'https://google.com'
 # qutebrowser`.
 # Type: Dict
 c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}'
-                       , 'anime': 'https://anime47.com/tim-nang-cao/?keyword={}'
+                       , 'anime47': 'https://anime47.com/tim-nang-cao/?keyword={}'
+                       , 'animehay': 'https://animehay.tv/tim-kiem?q={}'
+                       , 'sukidesuost': 'https://sukidesuost.info/?s={}'
                        , 'shopee': 'https://shopee.vn/search?keyword={}'
                        , 'am': 'https://www.amazon.com/s?k={}'
                        , 'aw': 'https://wiki.archlinux.org/?search={}'
