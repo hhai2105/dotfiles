@@ -38,7 +38,7 @@ config.load_autoconfig(False)
 c.aliases = {}
 c.aliases = {
     'adblock-toggle': 'config-cycle -t content.blocking.enabled',
-    'dark-toggle': 'config-cycle -t colors.webpage.darkmode.enabled',
+    'dark-toggle': 'config-cycle -t colors.webpage.darkmode.enabled ;; restart',
     'chromium': 'spawn --detach chromium {url}',
     'firefox': 'spawn --detach firefox {url}',
     'incognito': 'open --private',
@@ -47,9 +47,8 @@ c.aliases = {
     'qrcode': 'spawn alacritty -e watch --color -t -x qrcode-terminal \"{url}\"'
 }
 
-# Setting dark mode
-config.set("colors.webpage.darkmode.enabled", False)
-
+#config.set("colors.webpage.darkmode.enabled", True)
+#config.set("colors.webpage.darkmode.enabled", True)
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
@@ -414,22 +413,17 @@ c.fonts.prompts = 'default_size sans-serif'
 c.fonts.statusbar = '13pt "monospace Font"'
 
 # Bindings to use dmenu rather than qutebrowser's builtin search.
-#config.bind('o', 'spawn --userscript dmenu-open')
+config.bind('o', 'spawn --userscript ~/.scripts/rofi/search search')
 #config.bind('O', 'spawn --userscript dmenu-open --tab')
 
 # Bindings for normal mode
-config.bind('M', 'hint links spawn mpv {hint-url}')
-config.bind('Z', 'hint links spawn st -e youtube-dl {hint-url}')
-config.bind('Y', 'hint --rapid links yank ')
-config.bind('t', 'set-cmd-text -s :open -t')
-config.bind('xb', 'config-cycle statusbar.show always never')
-config.bind('xt', 'config-cycle tabs.show always never')
-config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
+c.bindings.commands['normal'] = {
+    'M': 'hint links spawn mpv {hint-url}',
+    'Z': 'hint links spawn alacritty -e youtube-dl {hint-url}',
+    'Y': 'hint --rapid links yank ',
+    't': 'set-cmd-text -s :open -t',
+    'xb': 'config-cycle statusbar.show always never',
+    'xt': 'config-cycle tabs.show always never',
+    'xx': 'config-cycle statusbar.show always never;; config-cycle tabs.show always',
+}
 
-# Bindings for cycling through CSS stylesheets from Solarized Everything CSS:
-# https://github.com/alphapapa/solarized-everything-css
-config.bind(',ap', 'config-cycle content.user_stylesheets ~/solarized-everything-css/css/apprentice/apprentice-all-sites.css ""')
-config.bind(',dr', 'config-cycle content.user_stylesheets ~/solarized-everything-css/css/darculized/darculized-all-sites.css ""')
-config.bind(',gr', 'config-cycle content.user_stylesheets ~/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css ""')
-config.bind(',sd', 'config-cycle content.user_stylesheets ~/solarized-everything-css/css/solarized-dark/solarized-dark-all-sites.css ""')
-config.bind(',sl', 'config-cycle content.user_stylesheets ~/solarized-everything-css/css/solarized-light/solarized-light-all-sites.css ""')
