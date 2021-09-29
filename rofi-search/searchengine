@@ -1,0 +1,15 @@
+SEARCHENGINE="
+DEFAULT https://google.com/search?q={}
+shopee https://shopee.vn/search?keyword={}
+am https://www.amazon.com/s?k={}
+aw https://wiki.archlinux.org/?search={}
+goog https://www.google.com/search?q={}
+hoog https://hoogle.haskell.org/?hoogle={}
+re https://www.reddit.com/r/{}
+ub https://www.urbandictionary.com/define.php?term={}
+wiki https://en.wikipedia.org/wiki/{}
+yt https://www.youtube.com/results?search_query={}
+anime47 https://anime47.com/tim-nang-cao/?keyword={}
+animehay https://animehay.tv/tim-kiem?q={}
+sukidesuost https://sukidesuost.info/?s={}
+"
