@@ -569,7 +569,7 @@ monitor-strict = false
 override-redirect = false
 wm-restack = generic
 width = 100%
-height = 30 
+height = 20 
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -600,25 +600,25 @@ module-margin-right = 3
 enable-ipc = true
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans:size=13;0"
-font-1 = "FontAwesome:size=13;0"
-font-2 = "Noto Sans:size=13;0"
-font-3 = "Noto Sans Mono:size=13;0"
-font-4 = "FontAwesome5Brands:size=13;0"
+font-0 = "Noto Sans:size=9;0"
+font-1 = "FontAwesome:size=9;0"
+font-2 = "Noto Sans:size=9;0"
+font-3 = "Noto Sans Mono:size=9;0"
+font-4 = "FontAwesome5Brands:size=9;0"
 ; for color emoji
 font-5 = "NotoEmoji:scale=8;"
-font-6 = "Noto Serif JP:size=13;"
-font-7 = "Material Design Icons:size=13;0"
+font-6 = "Noto Sans JP:size=9;0"
+font-7 = "Material Design Icons:size=11;0"
 
 modules-left = ewmh
-modules-center = deadbeef-play-pause deadbeef
+modules-center = mpc
 modules-right = pavolume battery wired-network wireless-network date
 
 tray-detached = false
 tray-offset-x = 0
 tray-offset-y = 0
 tray-padding = 2
-tray-maxsize = 20
+tray-maxsize = 11
 tray-scale = 1.0
 tray-position = right
 tray-background = ${colors.background}
@@ -2155,3 +2155,21 @@ interval = 1
 click-left = ~/.config/polybar/scripts/deadbeef.sh --toggle
 scroll-up = ~/.config/polybar/scripts/deadbeef.sh --up
 scroll-down = ~/.config/polybar/scripts/deadbeef.sh --down
+
+
+###############################################################################
+
+[module/mpc]
+type = custom/script
+
+exec = ~/.scripts/polybar/mpc.sh print
+
+label = %output%
+format =<label>
+; output continuous content
+tail = true
+format-background = ${colors.background}
+interval = .25
+click-left = ~/.scripts/polybar/mpc.sh toggle
+scroll-up = ~/.scripts/polybar/mpc.sh volUp 
+scroll-down = ~/.scripts/polybar/mpc.sh volDown 
