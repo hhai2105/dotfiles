@@ -1,6 +1,9 @@
 QUICKMARK="
+RREF https://www.emathhelp.net/calculators/linear-algebra/reduced-row-echelon-form-rref-caclulator/?i=%5B%5B0%2Cx%2Cy%5D%2C%5B-x%2C0%2Cz%5D%2C%5B-y%2C-z%2C0%5D%5D&reduced=on
 acs https://www.google.com/search?q=evil%20everywhere
 am https://www.amazon.com/
+anime47 https://anime47.com
+animehay https://animehay.tv
 cartoon https://wcostream.com
 cs311 https://people.cs.umass.edu/~sheldon/teaching/cs311/
 drive https://drive.google.com/drive/u/0/
@@ -12,15 +15,16 @@ fsm http://madebyevan.com/fsm/
 github https://github.com
 grade gradescope.com
 heroku https://signup.heroku.com/
+leet https://leetcode.com
 maps https://www.google.com/maps
 matrix https://matrixcalc.org/en/
 mess messenger.com
 mood moodle.umass.edu
 moonami https://umass.moonami.com/
 peterpan https://peterpanbus.com/
+physics https://masteringphysics.com
 raw https://www.google.com/search?q=raw%20french%20movie
 required https://1lib.us/book/539873/5d1785
-RREF https://www.emathhelp.net/calculators/linear-algebra/reduced-row-echelon-form-rref-caclulator/?i=%5B%5B0%2Cx%2Cy%5D%2C%5B-x%2C0%2Cz%5D%2C%5B-y%2C-z%2C0%5D%5D&reduced=on
 spire spire.umass.edu
 syncthing http://127.0.0.1:8384/
 yt youtube.com
