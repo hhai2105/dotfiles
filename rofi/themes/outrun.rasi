@@ -57,8 +57,8 @@
     selected-urgent-foreground:  @red;
     selected-urgent-background:  @bg;
     spacing:                     5;
-    lines: 5;
-    font: "Noto Sans Mono 12";
+    lines: 10;
+    font: "Noto Sans Mono 11";
 }
 #window {
     background-color: @background;
