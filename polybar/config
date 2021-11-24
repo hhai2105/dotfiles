@@ -569,7 +569,7 @@ monitor-strict = false
 override-redirect = false
 wm-restack = generic
 width = 100%
-height = 20 
+height = 20
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -686,6 +686,75 @@ modules-right = filesystem
 ;tray-scale = 1.0
 ;tray-position = right
 ;tray-background = ${colors.background}
+
+
+################################################################################
+################################################################################
+############                  MAINBAR-DWM			    ############
+################################################################################
+################################################################################
+
+[bar/mainbar-dwm]
+monitor = ${env:MONITOR}
+;monitor-fallback = HDMI1
+monitor-strict = false
+override-redirect = false
+wm-restack = generic
+width = 100%
+height = 20
+;offset-x = 1%
+;offset-y = 1%
+radius = 0.0
+fixed-center = true
+bottom = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+;border-size = 2
+;border-left-size = 25
+;border-right-size = 25
+; border-top-size = 20
+; border-bottom-size = 25
+border-color = #00000000
+
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 3
+module-margin-right = 3
+
+; Enable support for inter-process messaging
+; See the Messaging wiki page for more details.
+enable-ipc = true
+
+;https://github.com/jaagr/polybar/wiki/Fonts
+font-0 = "Noto Sans:size=9;0"
+font-1 = "FontAwesome:size=9;0"
+font-2 = "Noto Sans:size=9;0"
+font-3 = "Noto Sans Mono:size=9;0"
+font-4 = "FontAwesome5Brands:size=9;0"
+; for color emoji
+font-5 = "NotoEmoji:scale=8;"
+font-6 = "Noto Sans JP:size=9;0"
+font-7 = "Material Design Icons:size=11;0"
+
+modules-left = dwm
+modules-center = mpc
+modules-right = pavolume battery wired-network wireless-network date
+
+tray-detached = false
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 2
+tray-maxsize = 11
+tray-scale = 1.0
+tray-position = right
+tray-background = ${colors.background}
+
 
 
 ################################################################################
@@ -2172,5 +2241,94 @@ tail = true
 format-background = ${colors.background}
 interval = .25
 click-left = ~/.scripts/polybar/mpc.sh toggle
-scroll-up = ~/.scripts/polybar/mpc.sh volUp 
-scroll-down = ~/.scripts/polybar/mpc.sh volDown 
+scroll-up = ~/.scripts/polybar/mpc.sh volUp
+scroll-down = ~/.scripts/polybar/mpc.sh volDown
+
+###############################################################################
+
+[module/dwm]
+type = internal/dwm
+format = <label-tags> <label-layout> <label-floating> <label-title>
+; Path to dwm socket (default: /tmp/dwm.sock)
+; socket-path = /tmp/dwm.sock
+
+; Left-click to view tag, right-click to toggle tag view
+enable-tags-click = false
+; Scroll to cycle between available tags
+enable-tags-scroll = false
+; If true and enable-tags-scroll = true, scrolling will view all tags regardless if occupied
+tags-scroll-empty = false
+; If true and enable-tags-scroll = true, scrolling will cycle through tags backwards
+tags-scroll-reverse = false
+; If true and enable-tags-scroll = true, wrap active tag when scrolling
+tags-scroll-wrap = false
+; Left-click to set secondary layout, right-click to switch to previous layout
+enable-layout-click = false
+; Scroll to cycle between available layouts
+enable-layout-scroll = false
+; Wrap when scrolling and reaching beginning/end of layouts
+layout-scroll-wrap = false
+; Reverse scroll direction
+layout-scroll-reverse = false
+
+; If enable-layout-click = true, clicking the layout symbol will switch to this layout
+secondary-layout-symbol = [M]
+
+; Separator in between shown tags
+; label-separator = |
+
+; Title of currently focused window
+; Available tokens:
+;   %title%
+label-title = %title%
+label-title-padding = 2
+label-title-foreground = ${colors.blue}
+label-title-background = ${colors.background}
+label-title-maxlen = 30
+
+; Defaults to 'Desktop'
+label-title-default = ""
+
+; Symbol of current layout
+; Available tokens:
+;   %symbol%
+label-layout = %symbol%
+label-layout-padding = 2
+label-layout-foreground = ${colors.magenta}
+label-layout-background = ${colors.background}
+
+; Text to show when currently focused window is floating
+label-floating = F
+
+; States: focused, unfocused, visible, urgent, empty
+; Available tokens:
+;   %name%
+
+; focused = Selected tag on focused monitor
+label-focused = { %name% }
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.magenta}
+label-focused-padding = 2
+
+; unfocused = Unselected tag on unselected monitor
+label-unfocused = %name%
+label-unfocused-padding = 2
+
+; visible = Unselected tag, but occupied tag on any monitor
+label-visible = %name%
+label-visible-background = ${colors.background}
+label-visible-foreground = ${colors.yellow}
+label-visible-padding = 2
+
+; urgent = Unselected tag with window that has urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors.background}
+label-urgent-foreground = ${colors.red}
+label-urgent-padding = 2
+
+; empty = Unselected and unoccupied tag
+; This can be set to an empty string to hide empty tags
+label-empty = %name%
+label-empty-background = ${colors.background}
+label-empty-foreground = ${colors.cyan}
+label-empty-padding = 2
