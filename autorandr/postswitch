@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+nitrogen --restore
+~/.config/polybar/launch.sh
