@@ -330,13 +330,6 @@ instantly update dired
                               ("mp4" . "mpv")))
 #+end_src
 
-** Rainbow mode
-
-show rgb color in emacs
-#+begin_src emacs-lisp
-(use-package rainbow-mode)
-#+end_src
-
 ** PDF
 better pdf reader
 #+begin_src emacs-lisp
