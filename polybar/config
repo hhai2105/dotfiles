@@ -30,12 +30,12 @@ compositing-border = over
 ; Define fallback values used by all module formats
 format-foreground = #FF0000
 format-background = #00FF00
-format-underline =
-format-overline =
-format-spacing =
-format-padding =
-format-margin =
-format-offset =
+format-underline =#bb090819
+format-overline =#bb090819
+format-spacing =#bb090819
+format-padding =#bb090819
+format-margin =#bb090819
+format-offset =#bb090819
 
 [colors]
 
@@ -61,7 +61,7 @@ background = #bb090819
 ; background = #6564D1
 ; background = #919ad9
 fg-alt          = #7984D1
-fg              = #f2f3f7
+foreground      = #f2f3f7
 grey            = #546A90
 red             = #e61f44
 orange          = #cf433e
@@ -724,23 +724,21 @@ border-color = #00000000
 padding-left = 0
 padding-right = 1
 
-module-margin-left = 3
-module-margin-right = 3
+module-margin-left = 1
+module-margin-right = 1
 
 ; Enable support for inter-process messaging
 ; See the Messaging wiki page for more details.
 enable-ipc = true
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans:size=9;0"
-font-1 = "FontAwesome:size=9;0"
-font-2 = "Noto Sans:size=9;0"
-font-3 = "Noto Sans Mono:size=9;0"
-font-4 = "FontAwesome5Brands:size=9;0"
-; for color emoji
-font-5 = "NotoEmoji:scale=8;"
+font-0 = "Noto Sans Mono:size=9;0"
+font-1 = "Material Design Icons:size=9;0"
+font-2 = "FontAwesome5Brands:size=9;0"
+font-3 = "FontAwesome:size=9;0"
+font-4 = "NotoEmoji:scale=8;"
+font-5 = "Noto Sans:size=9;0"
 font-6 = "Noto Sans JP:size=9;0"
-font-7 = "Material Design Icons:size=11;0"
 
 modules-left = dwm
 modules-center = mpc
@@ -1496,9 +1494,9 @@ type = internal/date
 interval = 5
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
-date = "%a %m-%d-%Y"
+date = " %m/%d (%a)"
 time = %H:%M
-format-prefix = " "
+format-prefix = ""
 format-prefix-foreground = ${colors.violet}
 ; format-underline = #c1941a
 format-foreground = ${colors.violet}
@@ -2097,7 +2095,7 @@ format-connected-foreground = ${colors.magenta}
 format-connected-background = ${colors.background}
 format-connected-underline = #55aa55
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.magenta} 
+format-connected-prefix-foreground = ${colors.magenta}
 format-connected-prefix-background = ${colors.background}
 
 format-disconnected = <label-disconnected>
@@ -2109,7 +2107,7 @@ label-disconnected-background = ${colors.background}
 [module/wireless-network]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
-interface = wlp4s0 
+interface = wlp4s0
 interval = 1.0
 label-connected = %essid%
 label-connected-foreground = ${colors.blue}
@@ -2248,28 +2246,29 @@ scroll-down = ~/.scripts/polybar/mpc.sh volDown
 
 [module/dwm]
 type = internal/dwm
-format = <label-tags> <label-layout> <label-floating> <label-title>
+format = <label-tags><label-layout><label-floating><label-title>
 ; Path to dwm socket (default: /tmp/dwm.sock)
 ; socket-path = /tmp/dwm.sock
+socket-path = /tmp/dwm.sock
 
 ; Left-click to view tag, right-click to toggle tag view
-enable-tags-click = false
+enable-tags-click = true
 ; Scroll to cycle between available tags
-enable-tags-scroll = false
+enable-tags-scroll = true
 ; If true and enable-tags-scroll = true, scrolling will view all tags regardless if occupied
-tags-scroll-empty = false
+tags-scroll-empty = true
 ; If true and enable-tags-scroll = true, scrolling will cycle through tags backwards
-tags-scroll-reverse = false
+tags-scroll-reverse = true
 ; If true and enable-tags-scroll = true, wrap active tag when scrolling
-tags-scroll-wrap = false
+tags-scroll-wrap = true
 ; Left-click to set secondary layout, right-click to switch to previous layout
-enable-layout-click = false
+enable-layout-click = true
 ; Scroll to cycle between available layouts
-enable-layout-scroll = false
+enable-layout-scroll = true
 ; Wrap when scrolling and reaching beginning/end of layouts
-layout-scroll-wrap = false
+layout-scroll-wrap = true
 ; Reverse scroll direction
-layout-scroll-reverse = false
+layout-scroll-reverse = true
 
 ; If enable-layout-click = true, clicking the layout symbol will switch to this layout
 secondary-layout-symbol = [M]
@@ -2281,7 +2280,7 @@ secondary-layout-symbol = [M]
 ; Available tokens:
 ;   %title%
 label-title = %title%
-label-title-padding = 2
+label-title-padding = 1
 label-title-foreground = ${colors.blue}
 label-title-background = ${colors.background}
 label-title-maxlen = 30
@@ -2293,42 +2292,44 @@ label-title-default = ""
 ; Available tokens:
 ;   %symbol%
 label-layout = %symbol%
-label-layout-padding = 2
-label-layout-foreground = ${colors.magenta}
+label-layout-padding = 1
+label-layout-foreground = ${colors.blue}
 label-layout-background = ${colors.background}
 
 ; Text to show when currently focused window is floating
-label-floating = F
+label-floating = *
 
 ; States: focused, unfocused, visible, urgent, empty
 ; Available tokens:
 ;   %name%
 
 ; focused = Selected tag on focused monitor
-label-focused = { %name% }
+label-focused = %name%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.magenta}
-label-focused-padding = 2
+label-focused-padding = 1
 
 ; unfocused = Unselected tag on unselected monitor
 label-unfocused = %name%
-label-unfocused-padding = 2
+label-unfocused-padding = 1
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.cyan}
 
 ; visible = Unselected tag, but occupied tag on any monitor
 label-visible = %name%
 label-visible-background = ${colors.background}
 label-visible-foreground = ${colors.yellow}
-label-visible-padding = 2
+label-visible-padding = 1
 
 ; urgent = Unselected tag with window that has urgency hint set
 label-urgent = %name%
 label-urgent-background = ${colors.background}
 label-urgent-foreground = ${colors.red}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 ; empty = Unselected and unoccupied tag
 ; This can be set to an empty string to hide empty tags
 label-empty = %name%
 label-empty-background = ${colors.background}
 label-empty-foreground = ${colors.cyan}
-label-empty-padding = 2
+label-empty-padding = 1
