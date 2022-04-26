@@ -23,7 +23,7 @@ autoload -U colors && colors
 #PROMPT='%{$fg[red]%}╭─{ %{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%} %(5~|../%4~|%~) %{$fg[red]%}} %{$fg[green]%}${vcs_info_msg_0_}
 #%{$fg[red]%}╰─> %{$reset_color%}'
 PROMPT='%{$fg[red]%} %{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%} %(5~|../%4~|%~) %{$fg[green]%}${vcs_info_msg_0_}
-%{$fg[blue]%} > %{$reset_color%}'
+%{$fg[cyan]%} > %{$reset_color%}'
 
 # History in cache directory:
 HISTSIZE=10000
@@ -93,6 +93,7 @@ alias ssn="sudo shutdown now"
 alias docker="sudo docker"
 alias killall="killall -9"
 alias cp="rsync -ah --progress"
+alias gc="git clone --recurse-submodules"
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/nvm/init-nvm.sh
