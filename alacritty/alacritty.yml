@@ -154,29 +154,30 @@ font:
 #draw_bold_text_with_bright_colors: false
 # Colors (Tomorrow Night Bright)
 colors:
-  name: Grandshell
-  author: ""
+  # Default colors
   primary:
-    background: "#000000"
-    foreground: "#bebebe"
-  cursor:
-    text: "#000000"
-    cursor: "#bebebe"
+    background: '#282a36'
+    foreground: '#f8f8f2'
+
+  # Normal colors
   normal:
-    black: "#000000"
-    red: "#f25a5a"
-    green: "#77bb33"
-    yellow: "#efc334"
-    blue: "#5555dd"
-    magenta: "#c350ff"
-    cyan: "#5af2ee"
-    white: "#bebebe"
+    black: '#000000'
+    red: '#ff5555'
+    green: '#50fa7b'
+    yellow: '#f1fa8c'
+    blue: '#caa9fa'
+    magenta: '#ff79c6'
+    cyan: '#8be9fd'
+    white: '#bfbfbf'
+
+  # Bright colors
   bright:
-    black: "#222222"
-    red: "#ffbbbb"
-    green: "#dcf692"
-    yellow: "#f6df92"
-    blue: "#b2baf6"
-    magenta: "#f09fff"
-    cyan: "#5af2ee"
-    white: "#eeeeee"
+    black: '#575b70'
+    red: '#ff6e67'
+    green: '#5af78e'
+    yellow: '#f4f99d'
+    blue: '#caa9fa'
+    magenta: '#ff92d0'
+    cyan: '#9aedfe'
+    white: '#e6e6e6'
+theme: Dracula
