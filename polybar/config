@@ -729,7 +729,7 @@ module-margin-right = 1
 
 ; Enable support for inter-process messaging
 ; See the Messaging wiki page for more details.
-enable-ipc = true
+enable-ipc = true 
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
 font-0 = "Noto Sans Mono:size=9;0"
@@ -740,7 +740,7 @@ font-4 = "NotoEmoji:scale=8;"
 font-5 = "Noto Sans:size=9;0"
 font-6 = "Noto Sans JP:size=9;0"
 
-modules-left = dwm
+modules-left = dwm xwindow
 modules-center = mpc
 modules-right = pavolume battery wired-network wireless-network date
 
@@ -2193,9 +2193,9 @@ type = internal/xwindow
 ;   %title%
 ; Default: %title%
 label = %title%
-label-maxlen = 50
+label-maxlen = 30
 
-format-foreground = ${colors.foreground}
+format-foreground = ${colors.blue}
 format-background = ${colors.background}
 
 ###############################################################################
@@ -2246,7 +2246,7 @@ scroll-down = ~/.scripts/polybar/mpc.sh volDown
 
 [module/dwm]
 type = internal/dwm
-format = <label-tags><label-layout><label-floating><label-title>
+format = <label-tags><label-layout>
 ; Path to dwm socket (default: /tmp/dwm.sock)
 ; socket-path = /tmp/dwm.sock
 socket-path = /tmp/dwm.sock
@@ -2256,19 +2256,18 @@ enable-tags-click = true
 ; Scroll to cycle between available tags
 enable-tags-scroll = true
 ; If true and enable-tags-scroll = true, scrolling will view all tags regardless if occupied
-tags-scroll-empty = true
+tags-scroll-empty = false
 ; If true and enable-tags-scroll = true, scrolling will cycle through tags backwards
-tags-scroll-reverse = true
-; If true and enable-tags-scroll = true, wrap active tag when scrolling
-tags-scroll-wrap = true
+tags-scroll-reverse = false
+; If true and enable-tags-scroll = true, wrap active tag when scrolling tags-scroll-wrap = false
 ; Left-click to set secondary layout, right-click to switch to previous layout
-enable-layout-click = true
+enable-layout-click = false
 ; Scroll to cycle between available layouts
-enable-layout-scroll = true
+enable-layout-scroll = false
 ; Wrap when scrolling and reaching beginning/end of layouts
-layout-scroll-wrap = true
+layout-scroll-wrap = false
 ; Reverse scroll direction
-layout-scroll-reverse = true
+layout-scroll-reverse = false
 
 ; If enable-layout-click = true, clicking the layout symbol will switch to this layout
 secondary-layout-symbol = [M]
@@ -2297,7 +2296,7 @@ label-layout-foreground = ${colors.blue}
 label-layout-background = ${colors.background}
 
 ; Text to show when currently focused window is floating
-label-floating = *
+label-floating = "*"
 
 ; States: focused, unfocused, visible, urgent, empty
 ; Available tokens:
@@ -2313,7 +2312,7 @@ label-focused-padding = 1
 label-unfocused = %name%
 label-unfocused-padding = 1
 label-unfocused-background = ${colors.background}
-label-unfocused-foreground = ${colors.cyan}
+label-unfocused-foreground = ${colors.green}
 
 ; visible = Unselected tag, but occupied tag on any monitor
 label-visible = %name%

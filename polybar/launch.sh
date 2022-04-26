@@ -9,8 +9,9 @@
 # Terminate already running bar instances
 
 # Wait until the processes have been shut down
+killall -9 polybar
 while pgrep -u $UID -x polybar > /dev/null; do
-	killall -9 polybar
+	sleep 1;
 done
 
 desktop=$(echo $DESKTOP_SESSION)

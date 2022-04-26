@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
+~/.config/polybar/launch.sh 2> ~/.polybar.log 
 nitrogen --restore
-~/.config/polybar/launch.sh
