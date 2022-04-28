@@ -28,14 +28,6 @@ compositing-underline = over
 compositing-border = over
 
 ; Define fallback values used by all module formats
-format-foreground = #FF0000
-format-background = #00FF00
-format-underline =#bb090819
-format-overline =#bb090819
-format-spacing =#bb090819
-format-padding =#bb090819
-format-margin =#bb090819
-format-offset =#bb090819
 
 [colors]
 
@@ -49,17 +41,7 @@ format-offset =#bb090819
 ; =======================
 ;
 ; outrun-Electric========
-; background  = #bb0c0a20
-background = #bb090819
-; background = #aa131033
-; background = #1f1147
-; background = #110d26
-; background = #3b4167
-; background = #2d2844
-; background = #BA45A3
-; background = #6A6EA3
-; background = #6564D1
-; background = #919ad9
+background	= #bb090819
 fg-alt          = #7984D1
 foreground      = #f2f3f7
 grey            = #546A90
@@ -75,7 +57,23 @@ violet          = #df85ff
 cyan            = #42c6ff
 dark-cyan       = #204052
 
-; Nord theme ============ ; background = #2F343F
+dracula========
+
+; fg-alt     =#e2e2dc
+; background =#282a36
+; red        =#ff5555
+; orange     =#ffb86c
+; green      =#50fa7b
+; teal       =#0189cc
+; yellow     =#f1fa8c
+; blue       =#61bfff
+; dark-blue  =#0189cc
+; magenta    =#ff79c6
+; violet     =#bd93f9
+; cyan       =#8be9fd
+; dark-cyan  =#8be9fd
+
+; ; Nord theme ============ ; background = #2F343F
 ; foreground = #f3f4f5
 ; alert = #d08770
 ; volume-min = #a3be8c
@@ -701,12 +699,12 @@ monitor-strict = false
 override-redirect = false
 wm-restack = generic
 width = 100%
-height = 20
-;offset-x = 1%
-;offset-y = 1%
+height = 15
+#offset-x = 1%
+#offset-y = 1%
 radius = 0.0
 fixed-center = true
-bottom = false
+bottom = false 
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -719,7 +717,7 @@ line-color = #f00
 ;border-right-size = 25
 ; border-top-size = 20
 ; border-bottom-size = 25
-border-color = #00000000
+border-color = #000000
 
 padding-left = 0
 padding-right = 1
@@ -1009,7 +1007,7 @@ modules-right = pavolume memory2 cpu2 date
 tray-detached = false
 tray-offset-x = 0
 tray-offset-y = 0
-tray-padding = 2
+tray-padding =  2
 tray-maxsize = 20
 tray-scale = 1.0
 tray-position = right
@@ -2279,7 +2277,7 @@ secondary-layout-symbol = [M]
 ; Available tokens:
 ;   %title%
 label-title = %title%
-label-title-padding = 1
+label-title-padding = 0
 label-title-foreground = ${colors.blue}
 label-title-background = ${colors.background}
 label-title-maxlen = 30
@@ -2291,7 +2289,7 @@ label-title-default = ""
 ; Available tokens:
 ;   %symbol%
 label-layout = %symbol%
-label-layout-padding = 1
+label-layout-padding = 0
 label-layout-foreground = ${colors.blue}
 label-layout-background = ${colors.background}
 
