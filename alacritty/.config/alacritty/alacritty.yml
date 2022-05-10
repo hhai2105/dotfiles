@@ -150,6 +150,16 @@ font:
   # effect.
   use_thin_strokes: true
 
+cursor:
+  # Cursor style
+  #
+  # Values for `style`:
+  #   - ▇ Block
+  #   - _ Underline
+  #   - | Beam
+  style: Block
+
+
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 # Colors (Tomorrow Night Bright)

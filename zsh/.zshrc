@@ -69,7 +69,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Use lf to switch directories and bind it to ctrl-o
+#Use lf to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
@@ -94,7 +94,6 @@ alias docker="sudo docker"
 alias killall="killall -9"
 alias cp="rsync -ah --progress"
 alias gc="git clone --recurse-submodules"
-alias ssh="ssh -X"
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/nvm/init-nvm.sh

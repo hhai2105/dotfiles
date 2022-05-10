@@ -39,7 +39,7 @@ compositing-border = over
 ; lavender = #d0d0fe
 ; pink = #f9deff
 ; =======================
-;
+
 ; outrun-Electric========
 background	= #bb090819
 fg-alt          = #7984D1
@@ -56,9 +56,9 @@ magenta         = #ff2afc
 violet          = #df85ff
 cyan            = #42c6ff
 dark-cyan       = #204052
+; =======================
 
-dracula========
-
+; dracula===============
 ; fg-alt     =#e2e2dc
 ; background =#282a36
 ; red        =#ff5555
@@ -72,8 +72,9 @@ dracula========
 ; violet     =#bd93f9
 ; cyan       =#8be9fd
 ; dark-cyan  =#8be9fd
+; =======================
 
-; ; Nord theme ============ ; background = #2F343F
+; Nord theme ============ ; background = #2F343F
 ; foreground = #f3f4f5
 ; alert = #d08770
 ; volume-min = #a3be8c
