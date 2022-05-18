@@ -14,20 +14,17 @@ zstyle ':vcs_info:*' unstagedstr ' *'
 zstyle ':vcs_info:*' stagedstr ' +'
 zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
 zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
-#zstyle ':vcs_info:*' enable git svn
+# #zstyle ':vcs_info:*' enable git svn
 
 # Enable colors and change prompt:
 setopt PROMPT_SUBST
 autoload -U colors && colors
-#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b {$vcs_info_msg_0}"
-#PROMPT='%{$fg[red]%}╭─{ %{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%} %(5~|../%4~|%~) %{$fg[red]%}} %{$fg[green]%}${vcs_info_msg_0_}
-#%{$fg[red]%}╰─> %{$reset_color%}'
 PROMPT='%{$fg[red]%} %{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%} %(5~|../%4~|%~) %{$fg[green]%}${vcs_info_msg_0_}
 %{$fg[cyan]%} > %{$reset_color%}'
 
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=1000
+SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
 # Basic auto/tab complete:
