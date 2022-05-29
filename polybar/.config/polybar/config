@@ -1359,7 +1359,7 @@ bar-empty = ─
 [module/battery]
 ;https://github.com/jaagr/polybar/wiki/Module:-battery
 type = internal/battery
-battery = BAT1
+battery = BAT0
 adapter = ACDC
 full-at = 100
 
@@ -2106,7 +2106,7 @@ label-disconnected-background = ${colors.background}
 [module/wireless-network]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
-interface = wlp4s0
+interface = wlp3s0 
 interval = 1.0
 label-connected = %essid%
 label-connected-foreground = ${colors.blue}
