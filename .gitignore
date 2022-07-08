@@ -1,0 +1,6 @@
+autorandr/*
+!autorandr/.config/autorandr/postswitch
+mpd/.config/mpd/database
+mpd/.config/mpd/state
+mpd/.config/mpd/pid
+mpd/.config/mpd/sticker.sql

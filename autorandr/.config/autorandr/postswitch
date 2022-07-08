@@ -1,4 +1,0 @@
-#!/bin/sh
-
-~/.config/polybar/launch.sh 2> ~/.polybar.log 
-nitrogen --restore
