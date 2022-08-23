@@ -735,13 +735,13 @@ font-0 = "Noto Sans Mono:size=9;0"
 font-1 = "Material Design Icons:size=9;0"
 font-2 = "FontAwesome5Brands:size=9;0"
 font-3 = "FontAwesome:size=9;0"
-font-4 = "NotoEmoji:scale=8;"
+font-4 = "NotoEmoji:scale=15;"
 font-5 = "Noto Sans:size=9;0"
 font-6 = "Noto Sans JP:size=9;0"
 
 modules-left = dwm xwindow
 modules-center = mpc
-modules-right = pavolume battery wired-network wireless-network date
+modules-right = pavolume battery wireless-network date backlight
 
 tray-detached = false
 tray-offset-x = 0
@@ -1333,7 +1333,7 @@ card = intel_backlight
 ;   <label> (default)
 ;   <ramp>
 ;   <bar>
-format = <ramp> <label>
+format = <ramp>
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
@@ -1359,7 +1359,7 @@ bar-empty = ─
 [module/battery]
 ;https://github.com/jaagr/polybar/wiki/Module:-battery
 type = internal/battery
-battery = BAT0
+battery = BAT1
 adapter = ACDC
 full-at = 100
 
@@ -1490,11 +1490,11 @@ label = Cpu %percentage:3%%
 ;https://github.com/jaagr/polybar/wiki/Module:-date
 type = internal/date
 ; Seconds to sleep between updates
-interval = 5
+interval = 1
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
 date = " %m/%d (%a)"
-time = %H:%M
+time = %H:%M:%S
 format-prefix = ""
 format-prefix-foreground = ${colors.violet}
 ; format-underline = #c1941a
@@ -1785,7 +1785,7 @@ format-connected-background = ${colors.background}
 [module/networkspeeddown]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
-interface = wlan0
+interface = wlp4s0
 ;interface = enp14s0
 ; interface = enp0s31f6
 ;interface = enp4s0
@@ -1795,7 +1795,8 @@ format-connected-prefix = ""
 format-connected-prefix-foreground = #3EC13F
 format-connected-foreground = ${colors.foreground}
 format-connected-background = ${colors.background}
-;format-connected-underline = #62FF00
+;format-connected-
+underline = #62FF00
 
 ################################################################################
 
@@ -2106,7 +2107,7 @@ label-disconnected-background = ${colors.background}
 [module/wireless-network]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
-interface = wlp3s0 
+interface = wlp4s0
 interval = 1.0
 label-connected = %essid%
 label-connected-foreground = ${colors.blue}

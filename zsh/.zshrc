@@ -1,5 +1,6 @@
 # Created by newuser for 5.8
 export LANG=en_US.UTF-8
+export EDITOR=vim
 pfetch
 
 # Load version control information
