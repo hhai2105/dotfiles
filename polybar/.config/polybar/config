@@ -1348,6 +1348,12 @@ ramp-2 = 🌓
 ramp-1 = 🌒
 ramp-0 = 🌑
 
+; ramp-4 = 
+; ramp-3 =
+; ramp-2 = 
+; ramp-1 = 
+; ramp-0 = 
+
 ; Only applies if <bar> is used
 bar-width = 10
 bar-indicator = |
