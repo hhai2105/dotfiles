@@ -700,7 +700,7 @@ monitor-strict = false
 override-redirect = false
 wm-restack = generic
 width = 100%
-height = 15
+height = 18
 #offset-x = 1%
 #offset-y = 1%
 radius = 0.0
@@ -731,13 +731,13 @@ module-margin-right = 1
 enable-ipc = true 
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans Mono:size=9;0"
-font-1 = "Material Design Icons:size=9;0"
-font-2 = "FontAwesome5Brands:size=9;0"
-font-3 = "FontAwesome:size=9;0"
+font-0 = "Noto Sans Mono:size=12;0"
+font-1 = "Material Design Icons:size=12;0"
+font-2 = "FontAwesome5Brands:size=12;0"
+font-3 = "FontAwesome:size=12;0"
 font-4 = "NotoEmoji:scale=15;"
-font-5 = "Noto Sans:size=9;0"
-font-6 = "Noto Sans JP:size=9;0"
+font-5 = "Noto Sans:size=12;0"
+font-6 = "Noto Sans JP:size=12;0"
 
 modules-left = dwm xwindow
 modules-center = mpc
