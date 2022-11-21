@@ -1,6 +1,8 @@
 # Created by newuser for 5.8
 export LANG=en_US.UTF-8
 export EDITOR=vim
+export _JAVA_AWT_WM_NONREPARENTING=1
+export PATH="$PATH:$HOME/go/bin"
 pfetch
 
 # Load version control information

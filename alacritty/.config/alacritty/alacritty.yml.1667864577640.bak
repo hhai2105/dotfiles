@@ -91,7 +91,7 @@ font:
     family: "JetBrains Mono"
 
     # The `style` can be specified to pick a specific face.
-    style: Medium
+    style: Medium 
     # Bold font face
     #bold:
     # Font family
@@ -122,6 +122,7 @@ font:
 
   # Point size
   size: 11.0
+
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   #offset:
@@ -161,30 +162,30 @@ cursor:
 #draw_bold_text_with_bright_colors: false
 # Colors (Tomorrow Night Bright)
 colors:
-  # Default colors
+  name: 3024 (dark)
+  author: Chris Kempson
   primary:
-    background: '#1a1a1a'
-    foreground: '#c4c5b5'
-
-  # Normal colors
+    background: "#090300"
+    foreground: "#a5a2a2"
+  cursor:
+    text: "#090300"
+    cursor: "#a5a2a2"
   normal:
-    black: '#1a1a1a'
-    red: '#f4005f'
-    green: '#98e024'
-    yellow: '#fa8419'
-    blue: '#9d65ff'
-    magenta: '#f4005f'
-    cyan: '#58d1eb'
-    white: '#c4c5b5'
-
-  # Bright colors
+    black: "#090300"
+    red: "#db2d20"
+    green: "#01a252"
+    yellow: "#fded02"
+    blue: "#01a0e4"
+    magenta: "#a16a94"
+    cyan: "#b5e4f4"
+    white: "#a5a2a2"
   bright:
-    black: '#625e4c'
-    red: '#f4005f'
-    green: '#98e024'
-    yellow: '#e0d561'
-    blue: '#9d65ff'
-    magenta: '#f4005f'
-    cyan: '#58d1eb'
-    white: '#f6f6ef'
-theme: Monokai-Soda
+    black: "#5c5855"
+    red: "#db2d20"
+    green: "#01a252"
+    yellow: "#fded02"
+    blue: "#01a0e4"
+    magenta: "#a16a94"
+    cyan: "#b5e4f4"
+    white: "#f7f7f7"
+theme: 3024.dark
