@@ -731,13 +731,13 @@ module-margin-right = 1
 enable-ipc = true 
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans Mono:size=13;0"
-font-1 = "Material Design Icons:size=13;0"
+font-0 = "Noto Sans Mono:size=11;0"
+font-1 = "Material Design Icons:size=11;0"
 font-2 = "FontAwesome5Brands:size=11;0"
-font-3 = "FontAwesome:size=13;0"
-font-4 = "NotoEmoji:scale=13;"
-font-5 = "Noto Sans:size=13;0"
-font-6 = "Noto Sans JP:size=13;0"
+font-3 = "FontAwesome:size=11;0"
+font-4 = "NotoEmoji:scale=11;"
+font-5 = "Noto Sans:size=11;0"
+font-6 = "Noto Sans JP:size=11;0"
 
 modules-left = dwm xwindow
 modules-center = mpc
