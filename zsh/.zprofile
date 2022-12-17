@@ -7,16 +7,12 @@ export XDG_CONFIG_HOME="$HOME/.config/"
 export LD_LIBRARY_PATH=/usr/lib64/nvidia/:/usr/lib32/nvidia:/usr/lib:${LD_LIBRARY_PATH}
 
 NUMGPU=$(lspci | grep "VGA" | wc -l)
-echo ${NUMGPU}
+NUMNVIDIAGPU=$(lspci | grep "VGA.*NVIDIA" | wc -l)
 
-if [[ "${NUMGPU}" = "1" ]]; then
-	echo "nvidia"
-	if [[ "$(tty)" = "/dev/tty1" ]]; then
-		nvidia-xrun /home/hain/.config/X11/xinitrc
-	fi
-else;
-	if [[ "$(tty)" = "/dev/tty1" ]]; then
+if [[ "$(tty)" = "/dev/tty1" ]]; then
+	if [[ "${NUMGPU}" = "1" ]] && [[ "${NUMNVIDIAGPU}" = "1" ]]; then
+		nvidia-xrun dwm
+	else;
 		startx /home/hain/.config/X11/xinitrc
 	fi
-fi
-
+fi	
