@@ -1,9 +1,4 @@
 # Created by newuser for 5.8
-export LANG=en_US.UTF-8
-export EDITOR=emacs
-export _JAVA_AWT_WM_NONREPARENTING=1
-export PATH="$PATH:$HOME/go/bin"
-export PATH="$PATH:$HOME/.local/bin"
 pfetch
 
 # Load version control information
