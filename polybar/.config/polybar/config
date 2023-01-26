@@ -41,7 +41,7 @@ compositing-border = over
 ; =======================
 
 ; outrun-Electric========
-background	= #55090819
+background	= #aa090819
 fg-alt          = #7984D1
 foreground      = #f2f3f7
 grey            = #546A90
@@ -713,6 +713,10 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #f00
 
+; dpi = 0
+dpi-x = 0 
+dpi-y = 0
+
 ;border-size = 2
 ;border-left-size = 25
 ;border-right-size = 25
@@ -738,9 +742,10 @@ font-3 = "FontAwesome:size=11;0"
 font-4 = "NotoEmoji:scale=11;"
 font-5 = "Noto Sans:size=11;0"
 font-6 = "Noto Sans JP:size=11;0"
+font-7 = "Jetbrains Mono:size=7;0"
 
 modules-left = dwm xwindow
-modules-center = mpc
+modules-center = mpc-volume mpc-song mpc-elapsed
 modules-right = pavolume battery wireless-network date backlight
 
 tray-detached = false
@@ -1496,10 +1501,11 @@ label = Cpu %percentage:3%%
 ;https://github.com/jaagr/polybar/wiki/Module:-date
 type = internal/date
 ; Seconds to sleep between updates
-interval = 1
+; interval = 1
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
-date = " %m/%d (%a)"
+tail = true
+date =  %m/%d (%a)
 time = %H:%M:%S
 format-prefix = ""
 format-prefix-foreground = ${colors.violet}
@@ -2232,10 +2238,10 @@ scroll-down = ~/.config/polybar/scripts/deadbeef.sh --down
 
 ###############################################################################
 
-[module/mpc]
+[module/mpc-song]
 type = custom/script
 
-exec = ~/.scripts/polybar/mpc.sh print
+exec = ~/.scripts/polybar/mpc.sh -c
 exec-if = pgrep mpd
 
 label = %output%
@@ -2243,7 +2249,43 @@ format =<label>
 ; output continuous content
 tail = true
 format-background = ${colors.background}
-interval = .25
+click-left = ~/.scripts/polybar/mpc.sh toggle
+scroll-up = ~/.scripts/polybar/mpc.sh volUp
+scroll-down = ~/.scripts/polybar/mpc.sh volDown
+
+###############################################################################
+
+[module/mpc-volume]
+type = custom/script
+
+exec = ~/.scripts/polybar/mpc.sh -v
+exec-if = pgrep mpd
+
+label-font = 8
+
+label = %output%
+format =<label>
+; output continuous content
+tail = true
+format-background = ${colors.background}
+click-left = ~/.scripts/polybar/mpc.sh toggle
+scroll-up = ~/.scripts/polybar/mpc.sh volUp
+scroll-down = ~/.scripts/polybar/mpc.sh volDown
+
+###############################################################################
+
+[module/mpc-elapsed]
+type = custom/script
+
+exec = ~/.scripts/polybar/mpc.sh -e
+exec-if = pgrep mpd
+
+label = %output%
+label-font = 8
+format =<label>
+; output continuous content
+tail = true
+format-background = ${colors.background}
 click-left = ~/.scripts/polybar/mpc.sh toggle
 scroll-up = ~/.scripts/polybar/mpc.sh volUp
 scroll-down = ~/.scripts/polybar/mpc.sh volDown
