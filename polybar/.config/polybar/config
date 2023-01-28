@@ -60,7 +60,7 @@ dark-cyan       = #204052
 
 ; dracula===============
 ; fg-alt     =#e2e2dc
-; background =#282a36
+; background =#aa282a36
 ; red        =#ff5555
 ; orange     =#ffb86c
 ; green      =#50fa7b
@@ -705,7 +705,7 @@ height = 22
 #offset-y = 1%
 radius = 0.0
 fixed-center = true
-bottom = false 
+bottom = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
