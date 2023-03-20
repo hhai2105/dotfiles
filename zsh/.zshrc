@@ -90,5 +90,6 @@ alias docker="sudo docker"
 alias killall="killall -9"
 alias cp="rsync -ah --progress"
 alias gc="git clone --recurse-submodules"
+alias umass="ssh haihnguyen@elnux.cs.umass.edu"
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
