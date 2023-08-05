@@ -1374,8 +1374,8 @@ full-at = 100
 
 format-charging = <animation-charging> <label-charging>
 label-charging =  %percentage%%
-format-charging-foreground = ${colors.blue}
-label-charging-foreground = ${colors.blue}
+format-charging-foreground = ${colors.green}
+label-charging-foreground = ${colors.green}
 format-charging-background = ${colors.background}
 ; format-charging-underline = #a3c725
 
@@ -1397,14 +1397,14 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.lavender}
+ramp-capacity-foreground = ${colors.cyan}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.cyan}
+animation-charging-foreground = ${colors.green}
 animation-charging-framerate = 750
 
 ################################################################################
