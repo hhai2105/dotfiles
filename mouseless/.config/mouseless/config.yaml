@@ -7,7 +7,7 @@ devices:
 
 # the default speed for mouse movement and scrolling
 baseMouseSpeed: 750.0
-baseScrollSpeed: 50.0
+baseScrollSpeed: 100.0
 
 # the time it takes to accelerate to baseMouseSpeed (in ms), 0 to reach top speed immediately
 mouseAccelerationTime: 0
@@ -25,12 +25,12 @@ layers:
 - name: initial
   bindings:
     # when tab is held and another key pressed, activate mouse layer
-    capslock: tap-hold-next tab ; toggle-layer mouse ; 500
+    capslock: tap-hold capslock; toggle-layer mouse ; 200
 
 # a layer for mouse movement
 - name: mouse
   # when true, keys that are not mapped keep their original meaning
-  passThrough: true
+  passThrough: true 
   bindings:
     # quit mouse layer
     q: layer initial
@@ -38,9 +38,9 @@ layers:
     space: layer mouse
     r: reload-config
     l: move  1  0
-    j: move -1  0
-    k: move  0  1
-    i: move  0 -1
+    h: move -1  0
+    j: move  0  1
+    k: move  0 -1
     p: scroll up
     n: scroll down
     leftalt: speed 4.0
