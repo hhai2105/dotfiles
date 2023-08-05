@@ -91,5 +91,10 @@ alias killall="killall -9"
 alias cp="rsync -ah --progress"
 alias gc="git clone --recurse-submodules"
 alias umass="ssh haihnguyen@elnux.cs.umass.edu"
+alias main="g++ -g main.cpp -o main && ./main"
+alias lspc="bear -- make -j$(nproc)"
+alias kubectl="minikube kubectl --"
+alias pi="pip install --break-system-packages"
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
