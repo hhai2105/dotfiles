@@ -1,0 +1,27 @@
+colors:
+  name: Outrun Electric
+  author: Hai Nguyen
+  primary:
+    background: "#090819"
+    foreground: "#f2f3f7"
+  cursor:
+    text: "#f2f3f7"
+    cursor: "#1ea8fc"
+  normal:
+    black: "#110d26"
+    red: "#e61f44"
+    green: "#a7da1e"
+    yellow: "#fded02"
+    blue: "#3f88ad"
+    magenta: "#ff2afc"
+    cyan: "#204052"
+    white: "#919ad9"
+  bright:
+    black: "#3b4167"
+    red: "#cf433e"
+    green: "#a875ff"
+    yellow: "#ffd400"
+    blue: "#1ea8fc"
+    magenta: "#df85ff"
+    cyan: "#42c6ff"
+    white: "#f2f3f7"
