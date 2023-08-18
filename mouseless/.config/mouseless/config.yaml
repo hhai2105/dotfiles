@@ -7,16 +7,12 @@ devices:
 
 # the default speed for mouse movement and scrolling
 baseMouseSpeed: 750.0
-baseScrollSpeed: 100.0
+baseScrollSpeed: 10.0
 
 # the time it takes to accelerate to baseMouseSpeed (in ms), 0 to reach top speed immediately
 mouseAccelerationTime: 0
 # the shape of the acceleration curve, 1.0 is linear, higher values have more time at low speeds
-mouseAccelerationCurve: 1.0
-# speed of the mouse when it starts moving
-startMouseSpeed: 0.0
-# same for deceleration
-mouseDecelerationTime: 0
+mouseAccelerationCurve: 1.0 # speed of the mouse when it starts moving startMouseSpeed: 0.0 # same for deceleration mouseDecelerationTime: 0
 mouseDecelerationCurve: 1.0
 
 # the rest of the config defines the layers with their bindings
@@ -25,7 +21,7 @@ layers:
 - name: initial
   bindings:
     # when tab is held and another key pressed, activate mouse layer
-    capslock: tap-hold capslock; toggle-layer mouse ; 200
+    capslock: tap-hold capslock; toggle-layer mouse;  100
 
 # a layer for mouse movement
 - name: mouse
