@@ -41,7 +41,7 @@ compositing-border = over
 ; =======================
 
 ; outrun-Electric========
-background	= #aa090819
+background	= #77090819
 fg-alt          = #7984D1
 foreground      = #f2f3f7
 grey            = #546A90
