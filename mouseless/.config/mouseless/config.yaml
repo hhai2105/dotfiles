@@ -21,7 +21,7 @@ layers:
 - name: initial
   bindings:
     # when tab is held and another key pressed, activate mouse layer
-    capslock: tap-hold capslock; toggle-layer mouse;  100
+    capslock: tap-hold capslock; toggle-layer mouse; 200
 
 # a layer for mouse movement
 - name: mouse

@@ -1,6 +1,6 @@
 source ~/.secrets
 export LANG=en_US.UTF-8
-export EDITOR=emacs
+export EDITOR=nvim
 export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.local/bin"
