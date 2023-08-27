@@ -7,7 +7,7 @@ devices:
 
 # the default speed for mouse movement and scrolling
 baseMouseSpeed: 750.0
-baseScrollSpeed: 10.0
+baseScrollSpeed: 15.0
 
 # the time it takes to accelerate to baseMouseSpeed (in ms), 0 to reach top speed immediately
 mouseAccelerationTime: 0
@@ -21,7 +21,7 @@ layers:
 - name: initial
   bindings:
     # when tab is held and another key pressed, activate mouse layer
-    capslock: tap-hold capslock; toggle-layer mouse; 200
+    capslock: toggle-layer mouse
 
 # a layer for mouse movement
 - name: mouse
@@ -30,6 +30,7 @@ layers:
   bindings:
     # quit mouse layer
     q: layer initial
+    esc: layer initial
     # keep the mouse layer active
     space: layer mouse
     r: reload-config
@@ -40,9 +41,11 @@ layers:
     p: scroll up
     n: scroll down
     leftalt: speed 4.0
+    leftmeta: speed 6.0
     a: speed 0.3
     s: button left
     d: button middle
     f: button right
+    enter: capslock
     # move to the top left corner
     k0: "exec xdotool mousemove 0 0"
