@@ -32,7 +32,7 @@ layers:
     q: layer initial
     esc: layer initial
     # keep the mouse layer active
-    space: layer mouse
+    tab: layer mouse
     r: reload-config
     l: move  1  0
     h: move -1  0
@@ -46,6 +46,8 @@ layers:
     s: button left
     d: button middle
     f: button right
-    enter: capslock
+    f1: capslock
     # move to the top left corner
     k0: "exec xdotool mousemove 0 0"
+
+- name: mouse
