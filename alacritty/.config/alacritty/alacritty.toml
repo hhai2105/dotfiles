@@ -1,0 +1,45 @@
+[colors.bright]
+black = "#3b4167"
+blue = "#1ea8fc"
+cyan = "#42c6ff"
+green = "#a875ff"
+magenta = "#df85ff"
+red = "#cf433e"
+white = "#f2f3f7"
+yellow = "#ffd400"
+
+[colors.cursor]
+cursor = "#1ea8fc"
+text = "#f2f3f7"
+
+[colors.normal]
+black = "#110d26"
+blue = "#3f88ad"
+cyan = "#204052"
+green = "#a7da1e"
+magenta = "#ff2afc"
+red = "#e61f44"
+white = "#919ad9"
+yellow = "#fded02"
+
+[colors.primary]
+background = "#090819"
+foreground = "#f2f3f7"
+
+[cursor]
+style = "Block"
+
+[env]
+LANG = "en_US.UTF-8"
+LC_CTYPE = "en_US.UTF-8"
+TERM = "alacritty"
+
+[font]
+size = 23.0
+
+[font.normal]
+family = "JetBrains Mono"
+style = "Medium"
+
+[window]
+opacity = 0.7
