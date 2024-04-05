@@ -1,0 +1,96 @@
+{
+  "layer": "top",
+    "position": "top",
+    "margin-bottom": 0,
+    "modules-left": [
+      "hyprland/workspaces",
+      "custom/updates",
+      "tray",
+      "hyprland/window",
+      "dwl/window",
+      ],
+    "modules-center": [
+      ],
+    "modules-right": [
+      "pulseaudio",
+      "network",
+      "battery",
+      "clock",
+    ],
+    "tray": {
+      "icon-size": 24,
+      "spacing": 10
+    },
+    "hyprland/window": {
+      "format": " {}",
+      "rewrite": {
+          "(\\d\\. )?(.*) - Chromium": "<span color=\"#4285F4\"></span>  $2 ",
+          "nvim (.*)": "<span color=\"#57A143\"></span>  $1",
+          "nvim": "<span color=\"#57A143\">  Neovim</span> ",
+          "ranger(.*)": "<span color=\"#ffffff\"></span>  $1",
+          //"kitty (.*)": "<span color=\"#ffffff\"></span>  $1",
+          "Search(.*)": "<span color=\"#a855f7\"></span>  Search$1",
+      },
+      "separate-outputs": false
+    },
+    "hyprland/submap": {
+      "format": "✌️ {}",
+      "max-length": 8,
+      "tooltip": true
+    },
+    "hyprland/workspaces": {
+	"separate-outputs": true,
+      "format": "{icon}",
+      "format-icons": {
+      },
+    },
+    "dwl/window": {
+	"format": "{title}",
+	"max-length": 50,
+	"rewrite": {
+	"(.*) - Mozilla Firefox": "🌎 $1",
+	"(.*) - vim": " $1",
+	"(.*) - zsh": " [$1]"
+	}
+    },
+    "network": {
+      "interface": "wlp4s0",
+      "tooltip-format-ethernet": "{ifname} ",
+      "interval": 2,
+      "format": "{essid} ({signalStrength}%)",
+    },
+    "battery": {
+	    "bat": "BAT0",
+	    "interval": 60,
+	    "states": {
+		    "warning": 30,
+		    "critical": 15
+	    },
+	    "format": "{capacity}% {icon}",
+	    "format-icons": ["  ", "  ", "  ", "  ", "  "],
+	    "max-length": 25
+    },
+    "pulseaudio": {
+      "format": "{volume}% {icon}",
+      "format-bluetooth": "{volume}% {icon}",
+      "format-muted": "",
+      "format-icons": {
+          "headphone": "",
+          "hands-free": "",
+          "headset": "",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": ["", ""]
+      },
+      "scroll-step": 1,
+      "on-click": "pavucontrol"
+    },
+    "clock": {
+      //"format": "<span color=\"#56b6c2\"></span> {:%H:%M}",
+      "format": "{:%H:%M}",
+      "interval": 60,
+      "tooltip": true,
+      "tooltip-format": "{:%d %B %H:%M}"
+    }
+}
