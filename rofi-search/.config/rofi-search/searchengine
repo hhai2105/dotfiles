@@ -1,5 +1,5 @@
 SEARCHENGINE="
-DEFAULT https://search.brave.com/search?q={}
+DEFAULT https://www.google.com/search?q={}
 shopee https://shopee.vn/search?keyword={}
 am https://www.amazon.com/s?k={}
 aw https://wiki.archlinux.org/?search={}
