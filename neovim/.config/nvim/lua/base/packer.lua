@@ -33,6 +33,9 @@ use ("theprimeagen/harpoon")
 
 use ("lettertwo/laserwave.nvim")
 
+use ("norcalli/nvim-colorizer.lua")
+use ("tpope/vim-surround")
+
 use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v3.x',

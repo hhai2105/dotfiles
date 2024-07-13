@@ -733,14 +733,13 @@ module-margin-right = 1
 enable-ipc = true 
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Jetbrains Mono:size=11;0"
+font-0 = "JetbrainsMono Nerd Font:size=11;0"
 font-1 = "Material Design Icons:size=11;0"
 font-2 = "FontAwesome5Brands:size=11;0"
 font-3 = "FontAwesome:size=11;0"
 font-4 = "NotoEmoji:scale=11;"
 font-5 = "Noto Sans:size=11;0"
 font-6 = "Noto Sans JP:size=11;0"
-font-7 = "Jetbrains Mono:size=7;0"
 
 modules-left = dwm xwindow
 modules-center =
@@ -1370,26 +1369,28 @@ bar-empty = ─
 type = internal/battery
 battery = BAT0
 adapter = ACDC
-full-at = 100
+full-at = 95
 
-format-charging = <animation-charging> <label-charging>
+format-charging = <animation-charging>  <label-charging>
 label-charging =  %percentage%%
 format-charging-foreground = ${colors.green}
 label-charging-foreground = ${colors.green}
 format-charging-background = ${colors.background}
 ; format-charging-underline = #a3c725
 
-format-discharging = <ramp-capacity> <label-discharging>
+format-discharging = <ramp-capacity>  <label-discharging>
 label-discharging =  %percentage%%
 ; format-discharging-underline = #c7ae25
 format-discharging-foreground = ${colors.blue}
 label-discharging-foreground  = ${colors.blue}
 format-discharging-background = ${colors.background}
 
-format-full-prefix = " "
-; format-full-prefix-foreground = #a3c725
-; format-full-underline = #a3c725
+format-full = <label-full>
+label-full =  %percentage%%
+format-full-prefix = "  "
 format-full-foreground = ${colors.blue}
+format-full-prefix-foreground = ${colors.green}
+label-full-foreground = ${colors.green}
 format-full-background = ${colors.background}
 
 ramp-capacity-0 = 
