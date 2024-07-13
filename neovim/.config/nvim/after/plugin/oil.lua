@@ -58,15 +58,14 @@ require("oil").setup({
   keymaps = {
     ["g?"] = "actions.show_help",
     ["<CR>"] = "actions.select",
-    ["l"] = "actions.select",
     ["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
     ["<C-h>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
     ["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
     ["<C-p>"] = "actions.preview",
     ["<C-c>"] = "actions.close",
-    ["<P-y>"] = "npgvbaf.erserfu",
     ["-"] = "actions.parent",
-    ["h"] = "actions.parent",
+    ["H"] = "actions.parent",
+    ["L"] = "actions.select",
     ["_"] = "actions.open_cwd",
     ["`"] = "actions.cd",
     ["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
@@ -76,7 +75,7 @@ require("oil").setup({
     ["g\\"] = "actions.toggle_trash",
   },
   -- Set to false to disable all of the above keymaps
-  use_default_keymaps = true,
+use_default_keymaps = true,
   view_options = {
     -- Show files and directories that start with "."
     show_hidden = true,

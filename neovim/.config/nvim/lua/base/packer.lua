@@ -31,6 +31,8 @@ use ({"tpope/vim-fugitive", tag = 'v3.6'})
 
 use ("theprimeagen/harpoon")
 
+use ("lettertwo/laserwave.nvim")
+
 use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v3.x',

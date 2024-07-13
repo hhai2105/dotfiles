@@ -38,8 +38,15 @@ TERM = "alacritty"
 size = 13.0
 
 [font.normal]
-family = "JetBrains Mono"
-style = "Medium"
+family = "JetBrainsMono Nerd font"
+style = "Regular"
+
+
+[font.bold]
+style = "ExtraBold"
+
+[font.italic]
+style = "italic"
 
 [window]
 opacity = 0.7
