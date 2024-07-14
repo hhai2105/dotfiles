@@ -34,3 +34,6 @@ opt.updatetime = 45
 -- opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
+
+vim.opt.splitright = true
+
