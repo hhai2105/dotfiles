@@ -99,25 +99,35 @@ _G.packer_plugins = {
     path = "/home/hain/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["feline.nvim"] = {
+    loaded = true,
+    path = "/home/hain/.local/share/nvim/site/pack/packer/start/feline.nvim",
+    url = "https://github.com/feline-nvim/feline.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/hain/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/hain/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   harpoon = {
     loaded = true,
     path = "/home/hain/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
   },
-  ["laserwave.nvim"] = {
-    loaded = true,
-    path = "/home/hain/.local/share/nvim/site/pack/packer/start/laserwave.nvim",
-    url = "https://github.com/lettertwo/laserwave.nvim"
-  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/hain/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/hain/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -138,6 +148,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hain/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
+  ["nvim-comment"] = {
+    loaded = true,
+    path = "/home/hain/.local/share/nvim/site/pack/packer/start/nvim-comment",
+    url = "https://github.com/terrortylor/nvim-comment"
   },
   ["nvim-lspconfig"] = {
     loaded = true,

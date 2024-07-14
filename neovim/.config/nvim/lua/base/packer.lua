@@ -21,6 +21,7 @@ use ("stevearc/oil.nvim")
 
 use ("nvim-tree/nvim-web-devicons")
 
+use 'feline-nvim/feline.nvim'
 use( "nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"}) 
 
 use ("nvim-treesitter/playground")
@@ -31,10 +32,17 @@ use ({"tpope/vim-fugitive", tag = 'v3.6'})
 
 use ("theprimeagen/harpoon")
 
-use ("lettertwo/laserwave.nvim")
 
 use ("norcalli/nvim-colorizer.lua")
 use ("tpope/vim-surround")
+
+use "terrortylor/nvim-comment"
+use("lewis6991/gitsigns.nvim")
+
+use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+}
 
 use {
   'VonHeikemen/lsp-zero.nvim',
