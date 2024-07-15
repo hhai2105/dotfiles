@@ -3,37 +3,40 @@ local bind = vim.keymap.set
 bind("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
-vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
+bind("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
+bind("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
-vim.keymap.set("n", "<leader><leader>", function()
+bind("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+bind("n", "<leader>pv", vim.cmd.Ex)
 
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+bind("v", "K", ":m '<-2<CR>gv=gv")
+bind("v", "J", ":m '>+1<CR>gv=gv")
 
-vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
+bind("n", "J", "mzJ`z")
+bind("n", "<C-d>", "<C-d>zz")
+bind("n", "<C-u>", "<C-u>zz")
+bind("n", "n", "nzzzv")
+bind("n", "N", "Nzzzv")
+bind("n", "<leader>zig", "<cmd>LspRestart<cr>")
 -- greatest remap ever
-vim.keymap.set("", "<leader>p", [["_dP]])
-vim.keymap.set("i", "<C-c>", "<Esc>")
+bind("", "<leader>p", [["_dP]])
+bind("i", "<C-c>", "<Esc>")
 
-vim.keymap.set("n", "<leader>w", "<C-w>")
+bind("n", "<leader>w", "<C-w>")
 
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+bind("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+bind("n", "<leader>f", vim.lsp.buf.format)
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+bind("n", "<C-k>", "<cmd>cnext<CR>zz")
+bind("n", "<C-j>", "<cmd>cprev<CR>zz")
+bind("n", "<leader>k", "<cmd>lnext<CR>zz")
+bind("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+bind("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+bind("n", "<leader>x", "<cmd>!chod +x %<CR>", { silent = true })
+bind("n", "<leader>cd", "<cmd>cd <CR>", { silent = true })
 
+bind("n", "<leader>wd", "<cmd>quit<CR>")
+bind("n", "<C-w>d", "<cmd>quit<CR>")
