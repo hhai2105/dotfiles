@@ -1,0 +1,10 @@
+export XDG_CURRENT_DESKTOP=hyprland
+export XDG_SESSION_DESKTOP="$XDG_CURRENT_DESKTOP"
+
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+
+for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+  [ -x "$f" ] && . "$f"
+done
+
+exec hyprland 2> ~/.hyprland.log

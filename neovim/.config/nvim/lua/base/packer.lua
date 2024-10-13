@@ -12,11 +12,6 @@ use ({
   requires = { {'nvim-lua/plenary.nvim'} }
 })
 
-use ({
-    "nvim-telescope/telescope-file-browser.nvim",
-    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-})
-
 use ("stevearc/oil.nvim")
 
 use ("nvim-tree/nvim-web-devicons")
@@ -28,16 +23,27 @@ use ("nvim-treesitter/playground")
 
 use ("mbbill/undotree")
 
-use ({"tpope/vim-fugitive", tag = 'v3.6'})
+use {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    requires = { {"nvim-lua/plenary.nvim"} }
+}
 
-use ("theprimeagen/harpoon")
-
+use {
+  "NeogitOrg/neogit",
+  requires = {
+      {"nvim-lua/plenary.nvim"},
+      {"sindrets/diffview.nvim"},
+      {"nvim-telescope/telescope.nvim"},
+  }
+}
 
 use ("norcalli/nvim-colorizer.lua")
 use ("tpope/vim-surround")
 
 use "terrortylor/nvim-comment"
 use("lewis6991/gitsigns.nvim")
+use ("ahmedkhalf/project.nvim")
 
 use {
   'nvim-lualine/lualine.nvim',
@@ -65,5 +71,4 @@ use {
     {'rafamadriz/friendly-snippets'},
   }
 }
-
 end)

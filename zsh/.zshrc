@@ -105,5 +105,8 @@ alias kubectl="minikube kubectl --"
 alias pi="pip install --break-system-packages"
 alias todoist="todoist-cli"
 alias vi="nvim"
+alias mainsail="ssh orangepi@192.168.1.151"
+alias orangepi="ssh orangepi@192.168.1.151"
+alias theme="kitten themes"
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

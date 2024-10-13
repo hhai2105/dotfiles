@@ -3,6 +3,8 @@ local permission_hlgroups = {
   ['r'] = 'DiagnosticSignWarn',
   ['w'] = 'DiagnosticSignError',
   ['x'] = 'DiagnosticSignOk',
+  ['t'] = 'DiagnosticSignOk',
+  ['s'] = 'DiagnosticSignOk'
 }
 
 require("oil").setup({

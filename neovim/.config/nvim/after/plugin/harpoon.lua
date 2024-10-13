@@ -1,31 +1,38 @@
-local mark = require("harpoon.mark")
-local ui = require("harpoon.ui")
+local harpoon = require("harpoon")
+harpoon:setup()
 
 local bind = vim.keymap.set
+local conf = require("telescope.config").values
+local function toggle_telescope(harpoon_files)
+    local file_paths = {}
+    for _, item in ipairs(harpoon_files.items) do
+        table.insert(file_paths, item.value)
+    end
 
-bind("n", "<leader>a", mark.add_file)
-bind("n", "<C-e>", ui.toggle_quick_menu)
+    require("telescope.pickers").new({}, {
+        prompt_title = "Harpoon",
+        finder = require("telescope.finders").new_table({
+            results = file_paths,
+        }),
+        previewer = conf.file_previewer({}),
+        sorter = conf.generic_sorter({}),
+    }):find()
+end
 
-bind("n", "Q", function() ui.nav_file(1) end)
-bind("n", "W", function() ui.nav_file(2) end)
-bind("n", "E", function() ui.nav_file(3) end)
-bind("n", "R", function() ui.nav_file(4) end)
-bind("n", "T", function() ui.nav_file(5) end)
-bind("n", "Y", function() ui.nav_file(6) end)
+bind("n", "<leader>a", function() harpoon:list():add() end)
+bind("n", "<A-S-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
-require("harpoon").setup({
-    -- enable tabline with harpoon marks
-    tabline = true,
-    tabline_prefix = "   ",
-    tabline_suffix = "   ",
 
-    menu = {
-        width = vim.api.nvim_win_get_width(0) - 30,
-    }
-})
+bind("n", "<A-1>", function() harpoon:list():select(1) end)
+bind("n", "<A-2>", function() harpoon:list():select(2) end)
+bind("n", "<A-3>", function() harpoon:list():select(3) end)
+bind("n", "<A-4>", function() harpoon:list():select(4) end)
+bind("n", "<A-5>", function() harpoon:list():select(5) end)
+bind("n", "<A-6>", function() harpoon:list():select(6) end)
+bind("n", "<A-7>", function() harpoon:list():select(7) end)
+bind("n", "<A-8>", function() harpoon:list():select(8) end)
+bind("n", "<A-9>", function() harpoon:list():select(9) end)
 
-vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
-vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
-vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
-vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
-vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')
+
+bind("n", "<A-e>", function() toggle_telescope(harpoon:list()) end,
+    { desc = "Open harpoon window" })
