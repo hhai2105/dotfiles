@@ -1,0 +1,25 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
+OPTION="screen off\nlogout\nshut down\nsuspend\nhibernate"
+
+VALUE="$(echo $OPTION | rofi -dmenu -p "Options")"
+
+case $VALUE in
+    "screen off" )
+		sleep 1; xset dpms force off
+		;;
+	"logout")
+		killall dwm
+		;;
+	"shut down")
+		sudo shutdown now
+		;;
+	"suspend")
+		sudo systemctl suspend
+		;;
+	"hibernate")
+		sudo systemctl hibernate
+		;;
+esac
+
