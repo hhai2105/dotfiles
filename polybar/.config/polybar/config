@@ -733,8 +733,8 @@ module-margin-right = 1
 enable-ipc = true 
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "JetbrainsMono Nerd Font:size=11;0"
-font-1 = "Material Design Icons:size=11;0"
+font-0 = "JetbrainsMono Nerd Font:size=6;0"
+font-1 = "Material Design Icons:size=6;0"
 font-2 = "FontAwesome5Brands:size=11;0"
 font-3 = "FontAwesome:size=11;0"
 font-4 = "NotoEmoji:scale=11;"
