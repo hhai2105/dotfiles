@@ -7,6 +7,9 @@ function run {
   fi
 }
 
+xset s off
+xset s noblank
+
 autorandr -c
 #Set your native resolution IF it does not exist in xrandr
 #More info in the script
@@ -30,6 +33,7 @@ xset r rate 450 25
 #cursor active at boot
 run ibus-daemon --xim -d -r &
 run powerkit &
+run sunshine &
 run imwheel &
 run ./key_repeat.sh &
 run syncthing --no-browser &
