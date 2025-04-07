@@ -88,25 +88,7 @@ bindkey -s '^o' 'lfcd\n'
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+source ~/.alias.sh
 
-# Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
-
-alias ssn="sudo shutdown now"
-alias docker="sudo docker"
-alias killall="killall -9"
-alias cp="rsync -ah --progress"
-alias gc="git clone --recurse-submodules"
-alias umass="ssh haihnguyen@elnux.cs.umass.edu"
-alias main="g++ -g main.cpp -o main && ./main"
-alias lspc="bear -- make -j$(nproc)"
-alias kubectl="minikube kubectl --"
-alias pi="pip install --break-system-packages"
-alias todoist="todoist-cli"
-alias vi="nvim"
-alias mainsail="ssh orangepi@192.168.1.151"
-alias orangepi="ssh orangepi@192.168.1.151"
-alias theme="kitten themes"
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
