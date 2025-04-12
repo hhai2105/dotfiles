@@ -9,6 +9,7 @@ function run {
 
 xset s off
 xset s noblank
+xmodmap ~/.Xmodmap
 
 autorandr -c
 #Set your native resolution IF it does not exist in xrandr
