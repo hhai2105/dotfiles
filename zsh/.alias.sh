@@ -12,3 +12,5 @@ alias todoist="todoist-cli"
 alias mainsail="ssh orangepi@192.168.1.151"
 alias orangepi="ssh orangepi@192.168.1.151"
 alias theme="kitten themes"
+
+source .extract.sh
