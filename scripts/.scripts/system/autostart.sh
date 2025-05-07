@@ -44,7 +44,6 @@ run emacs --daemon &
 run numlockx on &
 run mpDris2 &
 run mpd &
-run blueman-tray &
 run xfce4-power-manager &
 run udiskie &
 run picom &
