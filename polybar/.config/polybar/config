@@ -743,7 +743,7 @@ font-6 = "Noto Sans JP:size=11;0"
 
 modules-left = dwm xwindow
 modules-center =
-modules-right = pavolume battery wireless-network date backlight
+modules-right = weather pavolume battery wireless-network date backlight
 
 tray-detached = false
 tray-offset-x = 0
@@ -2069,20 +2069,6 @@ format-muted-background = ${colors.background}
 
 ################################################################################
 
-[module/weather]
-type = custom/script
-interval = 10
-format = <label>
-format-prefix = " "
-format-prefix-foreground = #3EC13F
-format-underline = #3EC13F
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-exec = python -u ~/.config/polybar/scripts/weather.py
-tail = true
-
-#################################################################################
-
 [module/wired-network]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
@@ -2379,3 +2365,9 @@ label-empty = %name%
 label-empty-background = ${colors.background}
 label-empty-foreground = ${colors.cyan}
 label-empty-padding = 1
+
+[module/weather]
+type = custom/script
+exec = ~/.scripts/polybar/weather.sh
+tail = false
+interval = 960

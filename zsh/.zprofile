@@ -1,5 +1,3 @@
-
-source ~/.secrets
 export LANG=en_US.UTF-8
 export EDITOR=nvim
 export _JAVA_AWT_WM_NONREPARENTING=1

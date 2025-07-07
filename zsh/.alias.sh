@@ -11,6 +11,7 @@ alias pi="pip install --break-system-packages"
 alias todoist="todoist-cli"
 alias mainsail="ssh orangepi@192.168.1.151"
 alias orangepi="ssh orangepi@192.168.1.151"
-alias theme="kitten themes"
+alias cc="~/.scripts/tmux/sessionizer.sh"
 
-source .extract.sh
+source $HOME/.extract.sh
+

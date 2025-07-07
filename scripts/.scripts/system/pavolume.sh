@@ -15,7 +15,7 @@ curStatus="no"
 active_sink=""
 limit=$((100 - inc)) maxlimit=$((maxvol - inc))
 reloadSink() {
-    active_sink=$(pactl list sinks | grep RUNNING -B 1 | grep -Po 'Sink #\K[0-9]*')
+    active_sink=$(pactl list sinks | grep $(pactl get-default-sink) -B 2 | grep -Po 'Sink #\K[0-9]*')
 }
 
 function volUp {
@@ -147,13 +147,16 @@ function output() {
     reloadSink
     getCurVol
     volMuteStatus
-    if [ "${curStatus}" = 'yes' ]
-    then
-        echo " $curVol%"
-    else
-        echo " $curVol%"
-    fi
-} #}}}
+	if [ "$active_sink" = '' ]
+	then
+		echo "Sink not chosen"
+	elif [ "${curStatus}" = 'yes' ]
+	then
+		echo " $curVol%"
+	else
+		echo " $curVol%"
+	fi
+}
 
 reloadSink
 case "$1" in
@@ -188,6 +191,6 @@ case "$1" in
         ;;
     *)
         # By default print output for bar
-        output
+		output
         ;;
 esac

@@ -1,8 +1,9 @@
 local opt = vim.opt
 
 opt.number = true
-opt.clipboard = "unnamedplus"
 opt.autochdir = false
+opt.clipboard:append({'unnamedplus'})
+
 
 -- indenting
 opt.tabstop = 4
@@ -36,4 +37,3 @@ opt.updatetime = 45
 vim.g.mapleader = " "
 
 vim.opt.splitright = true
-
