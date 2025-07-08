@@ -51,7 +51,7 @@ function volUp {
         volSync
     fi
 
-	dunstify -a "volume" "volume" "${curVol}" -r 991851 -h int:value:$curVol -t 1000
+	dunstify -a "volume" "         volume: ${curVol}%" -r 991851 -h int:value:$curVol -t 1000
 }
 
 function volDown {
@@ -68,7 +68,7 @@ function volDown {
     then
         volSync
     fi
-	dunstify -a "volume" "volume" "${curVol}" -r 991851 -h int:value:$curVol -t 1000
+	dunstify -a "volume" "         volume: ${curVol}%" -r 991851 -h int:value:$curVol -t 1000
 
 }
 

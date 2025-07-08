@@ -164,7 +164,7 @@ tray-offset-y = 0
 tray-padding = 2
 tray-maxsize = 20
 tray-scale = 1.0
-tray-position = right
+tray-position = none 
 tray-background = ${colors.background}
 
 #i3: Make the bar appear below windows
@@ -743,7 +743,7 @@ font-6 = "Noto Sans JP:size=11;0"
 
 modules-left = dwm xwindow
 modules-center =
-modules-right = weather pavolume battery wireless-network date backlight
+modules-right = weather pavolume battery wireless-network calendar
 
 tray-detached = false
 tray-offset-x = 0
@@ -751,7 +751,7 @@ tray-offset-y = 0
 tray-padding = 2
 tray-maxsize = 11
 tray-scale = 1.0
-tray-position = right
+tray-position = none
 tray-background = ${colors.background}
 
 
@@ -1512,6 +1512,9 @@ format-prefix-foreground = ${colors.violet}
 format-foreground = ${colors.violet}
 format-background = ${colors.background}
 label = %date% %time%
+click-left = ~/.scripts/polybar/calendar.sh curr
+scroll-up = ~/.scripts/polybar/calendar.sh next
+scroll-down = ~/.scripts/polybar/calendar.sh prev
 
 #################################################################
 
@@ -2106,7 +2109,7 @@ label-disconnected-background = ${colors.background}
 type = internal/network
 interface = wlp4s0
 interval = 1.0
-label-connected = %essid%
+label-connected = %{A1:alacritty -e "nmtui":}%essid%%{A}
 label-connected-foreground = ${colors.blue}
 
 format-connected = <ramp-signal> <label-connected>
@@ -2371,3 +2374,16 @@ type = custom/script
 exec = ~/.scripts/polybar/weather.sh
 tail = false
 interval = 960
+
+; add `calendar` to your modules list
+[module/calendar]
+type = custom/script
+
+exec = date '+%m/%d (%a) %T'
+interval = 1
+format-foreground = ${colors.violet}
+format-background = ${colors.background}
+click-left = ~/.scripts/polybar/calendar.sh curr
+scroll-up = ~/.scripts/polybar/calendar.sh next
+scroll-down = ~/.scripts/polybar/calendar.sh prev
+
