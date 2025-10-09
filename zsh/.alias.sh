@@ -10,6 +10,7 @@ alias cc="~/.scripts/tmux/sessionizer.sh"
 alias ls="ls -la --color=auto"
 alias xmm="xmodmap ~/.Xmodmap"
 alias storepackage="paru -Qen"
+alias ga"git apply --3way"
 
 source $HOME/.extract.sh
 

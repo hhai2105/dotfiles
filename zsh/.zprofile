@@ -11,15 +11,8 @@ export WINE_PREFIX=~/.wine
 export WINEDLLOVERRIDES="OnlineFix64=n;SteamOverlay64=n;winmm=n,b;dnet=n;steam_api64=n"
 # export LD_LIBRARY_PATH=/usr/lib64/nvidia/:/usr/lib32/nvidia:/usr/lib:${LD_LIBRARY_PATH}
 
-NUMGPU=$(lspci | grep "VGA" | wc -l)
-NUMNVIDIAGPU=$(lspci | grep "VGA.*NVIDIA" | wc -l)
+# hyprland
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-#	hyprland
- 	if [[ "${NUMGPU}" = "1" ]] && [[ "${NUMNVIDIAGPU}" = "1" ]]; then
- 		# nvidia-xrun dwm
- 		startx /home/hain/.config/X11/xinitrc
- 	else;
- 		startx /home/hain/.config/X11/xinitrc
- 	fi
+    startx /home/hain/.config/X11/xinitrc
 fi
