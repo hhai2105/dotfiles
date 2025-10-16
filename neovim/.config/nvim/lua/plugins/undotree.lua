@@ -21,6 +21,6 @@ return {
             endif
         ]]
 
-        vim.keymap.set('n', '<leader>gu', vim.cmd.UndotreeToggle, {})
+        vim.keymap.set('n', '<leader>gu', ":UndotreeToggle<CR>:UndotreeFocus<CR>")
     end,
 }

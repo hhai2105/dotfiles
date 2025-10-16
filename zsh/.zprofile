@@ -6,9 +6,9 @@ export PATH="$PATH:$HOME/.scripts/tmux"
 export XDG_CONFIG_HOME="$HOME/.config/"
 export GTK_THEME=Arc-Dark
 export WLR_NO_HARDWARE_CURSORS=1
-export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
+# export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 export WINE_PREFIX=~/.wine
-export WINEDLLOVERRIDES="OnlineFix64=n;SteamOverlay64=n;winmm=n,b;dnet=n;steam_api64=n"
+# export WINEDLLOVERRIDES="OnlineFix64=n;SteamOverlay64=n;winmm=n,b;dnet=n;steam_api64=n"
 # export LD_LIBRARY_PATH=/usr/lib64/nvidia/:/usr/lib32/nvidia:/usr/lib:${LD_LIBRARY_PATH}
 
 # hyprland
