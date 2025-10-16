@@ -152,9 +152,9 @@ function output() {
 		echo "Sink not chosen"
 	elif [ "${curStatus}" = 'yes' ]
 	then
-		echo " $curVol%"
+		echo "  $curVol%"
 	else
-		echo " $curVol%"
+		echo "  $curVol%"
 	fi
 }
 

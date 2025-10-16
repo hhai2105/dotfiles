@@ -1,0 +1,2 @@
+qemu-system-x86_64: -drive file=/dev/nvme1n1p2,media=disk,format=raw,cache=none,if=virtio: Could not open '/dev/nvme1n1p2': Permission denied
+qemu-system-x86_64: -drive file=/dev/nvme1n1p2,media=disk,format=raw,cache=none,if=virtio: Could not open '/dev/nvme1n1p2': Permission denied

@@ -1,0 +1,36 @@
+cp /usr/share/edk2/x64/OVMF_VARS.4m.fd /tmp/my_OVMF_VARS.4m.fd
+
+
+sudo qemu-system-x86_64 \
+    -name windows11,debug-threads=on \
+    -machine q35,smm=off,vmport=off,accel=kvm \
+    -global kvm-pit.lost_tick_policy=discard \
+    -cpu host,topoext,kvm=off,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time \
+    -smp sockets=1,cores=6,threads=2 \
+    -m 12G \
+    -mem-prealloc \
+    -rtc base=utc,clock=host,driftfix=slew \
+    -drive if=pflash,format=raw,readonly=on,file=/usr/share/edk2/x64/OVMF_CODE.4m.fd \
+    -drive if=pflash,format=raw,file=/tmp/my_OVMF_VARS.4m.fd \
+    -drive file=/dev/nvme0n1,media=disk,format=raw,cache=none \
+#     -nic user,id=nic0,smb=/home/nekoconn/,model=virtio-net-pci \
+#    -vga none \
+#     -nographic \
+#    -device vfio-pci,multifunction=on,host=01:00.0 \
+#    -device vfio-pci,host=01:00.1 \
+#    -audiodev pa,id=audio0,timer-period=100 \
+#    -device hda-micro,audiodev=audio0 \
+#    -device ivshmem-plain,id=shmem0,memdev=looking-glass \
+#    -object memory-backend-file,id=looking-glass,share=yes,mem-path=/dev/kvmfr0,size=32M \
+#    -usbdevice mouse \
+#    -usbdevice keyboard \
+#    -device usb-host,vendorid=0x045e,productid=0x0b12 \
+#    -device usb-host,vendorid=0x2dc8,productid=0x3107 \
+#    -device usb-host,vendorid=0x2dc8,productid=0x3106 \
+#    -device usb-host,vendorid=0x045e,productid=0x028e \
+#   -spice port=5900,addr=127.0.0.1,disable-ticketing=on > /dev/null 2>&1 &
+
+# sudo cpu_pinning
+
+
+#    -nic bridge,br=br0,model=virtio-net-pci \
