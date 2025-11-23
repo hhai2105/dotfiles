@@ -742,7 +742,7 @@ font-5 = "Noto Sans:size=11;0"
 font-6 = "Noto Sans JP:size=11;0"
 
 modules-left = dwm xwindow
-modules-center = 
+modules-center = temperature
 modules-right = weather pavolume wired-network networkspeedup networkspeeddown wireless-network calendar
 
 tray-detached = false
@@ -1586,8 +1586,8 @@ format-background = ${colors.background}
 type = internal/fs
 
 ; Mountpoints to display
-mount-0 = /
-;mount-1 = /home
+; mount-0 = /
+; mount-1 = ~/windows
 ;mount-2 = /var
 
 ; Seconds to sleep between updates

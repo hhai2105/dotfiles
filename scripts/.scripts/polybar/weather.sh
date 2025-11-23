@@ -8,6 +8,8 @@ APIKEY=`cat $HOME/secrets/owm-key`
 # if you leave these empty location will be picked based on your ip-adres
 CITY_NAME=''
 COUNTRY_CODE=''
+LAT=''
+LON=''
 # Desired output language
 LANG="en"
 # UNITS can be "metric", "imperial" or "kelvin". Set KNOTS to "yes" if you
@@ -98,8 +100,10 @@ fi
 if [ -z "$CITY_NAME" ]; then
     IP=`curl -s ifconfig.me`  # == ip
     IPCURL=$(curl -s https://ipinfo.io/$IP)
-    CITY_NAME=$(echo $IPCURL | jq -r ".city")
-    COUNTRY_CODE=$(echo $IPCURL | jq -r ".country")
+    LOC=$(echo $IPCURL | jq -r ".loc")
+    IFS="," read -r LAT LON <<< "$LOC"
+#    echo $LAT
+#    echo $LON
 fi
 
 RESPONSE=""
@@ -110,7 +114,13 @@ if [ $UNITS = "kelvin" ]; then
 else
     UNIT_URL="&units=$UNITS"
 fi
+
+URL=""
+if [ -z "$CITY_NAME" ]; then
+URL="api.openweathermap.org/data/2.5/weather?appid=$APIKEY$UNIT_URL&lang=$LANG&lat=$LAT&lon=$LON"
+else
 URL="api.openweathermap.org/data/2.5/weather?appid=$APIKEY$UNIT_URL&lang=$LANG&q=$(echo $CITY_NAME| sed 's/ /%20/g'),${COUNTRY_CODE}"
+fi
 
 function getData {
     ERROR=0

@@ -92,3 +92,8 @@ source $HOME/.alias.sh
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/hain/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/hain/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
