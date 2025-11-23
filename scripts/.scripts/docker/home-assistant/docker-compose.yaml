@@ -11,4 +11,13 @@ services:
     network_mode: host
     environment:
       TZ: America/New_York
-
+  matter-server:
+    container_name: matter-server
+    image: ghcr.io/home-assistant-libs/python-matter-server:stable
+    restart: unless-stopped
+    security_opt:
+      - apparmor=unconfined
+    volumes:
+      - /opt/matter-server:/data
+      - /run/dbus:/run/dbus:ro
+    network_mode: host
