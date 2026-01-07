@@ -1,44 +1,82 @@
-volumes:
-  etc_wireguard:
-
+version: "3.8"
 services:
   wg-easy:
-    #environment:
-    #  Optional:
-    #  - PORT=51821
-    #  - HOST=0.0.0.0
-    #  - INSECURE=false
+    labels:
+      # traefik
+      - "traefik.enable=true"
+      - "traefik.http.services.WireGuardService.loadbalancer.server.port=51821"
+      # http to https
+      - "traefik.http.routers.WireGuardRoute.service=WireGuardService"
+      # ⚠️ Required:
+      # Change this to your host's public address
+      - "traefik.http.routers.WireGuardRoute.rule=Host(`hainhome.duckdns.org`)"
+      - "traefik.http.routers.WireGuardRoute.entrypoints=web"
+      - "traefik.http.routers.WireGuardRoute.middlewares=HttpToHttpsRedirectMiddleware"
+      # https
+      - "traefik.http.routers.WireGuardRouteSSL.service=WireGuardService"
+      # ⚠️ Required:
+      # Change this to your host's public address
+      - "traefik.http.routers.WireGuardRouteSSL.rule=Host(`hainhome.duckdns.org`)"
+      - "traefik.http.routers.WireGuardRouteSSL.entrypoints=websecure"
+      - "traefik.http.routers.WireGuardRouteSSL.tls.certresolver=MainCertResolver"
+    environment:
+      # ⚠️ Required:
+      # Change this to your host's public address
+      - WG_HOST=hainhome.duckdns.org
 
-    image: ghcr.io/wg-easy/wg-easy:15
+      # Optional:
+      # - PASSWORD=
+      # - WG_PORT=51820
+      # - WG_DEFAULT_ADDRESS=10.8.0.x
+      # - WG_DEFAULT_DNS=1.1.1.1
+      # - WG_MTU=1420
+      #-  WG_ALLOWED_IPS=
+      # - WG_PRE_UP=echo "Pre Up" > /etc/wireguard/pre-up.txt
+      # - WG_POST_UP=echo "Post Up" > /etc/wireguard/post-up.txt
+      # - WG_PRE_DOWN=echo "Pre Down" > /etc/wireguard/pre-down.txt
+      # - WG_POST_DOWN=echo "Post Down" > /etc/wireguard/post-down.txt
+
     container_name: wg-easy
+    image: ghcr.io/wg-easy/wg-easy
     networks:
-      wg:
-        ipv4_address: 10.42.42.42
-        ipv6_address: fdcc:ad94:bacf:61a3::2a
+      - traefik_network
     volumes:
-      - etc_wireguard:/etc/wireguard
-      - /lib/modules:/lib/modules:ro
+      - .:/etc/wireguard
     ports:
       - "51820:51820/udp"
-      - "51821:51821/tcp"
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
-      # - NET_RAW # ⚠️ Uncomment if using Podman
     sysctls:
       - net.ipv4.ip_forward=1
       - net.ipv4.conf.all.src_valid_mark=1
-      - net.ipv6.conf.all.disable_ipv6=0
-      - net.ipv6.conf.all.forwarding=1
-      - net.ipv6.conf.default.forwarding=1
+
+  traefik:
+    image: traefik:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik_letsencrypt_data:/letsencrypt
+    networks:
+      - traefik_network
+    ports:
+      - "80:80"
+      - "443:443"
+    command:
+      - "--providers.docker"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.network=traefik_network"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.MainCertResolver.acme.tlschallenge=true"
+      # ⚠️ Change the email to yours (to receive notifications from letsencrypt)
+      - "--certificatesresolvers.MainCertResolver.acme.email=hhai2105@gmail.com"
+      - "--certificatesresolvers.MainCertResolver.acme.storage=/letsencrypt/acme.json"
 
 networks:
-  wg:
-    driver: bridge
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: 10.42.42.0/24
-        - subnet: fdcc:ad94:bacf:61a3::/64
+  traefik_network:
+    external: true
+
+volumes:
+  traefik_letsencrypt_data:
