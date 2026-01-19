@@ -13,6 +13,3 @@ export WINE_PREFIX=~/.wine
 
 # hyprland
 
-if [[ "$(tty)" = "/dev/tty1" ]]; then
-    startx /home/hain/.config/X11/xinitrc
-fi

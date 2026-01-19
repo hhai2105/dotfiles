@@ -4,9 +4,9 @@ if grep -qF "username" traefik-dynamic.yml; then
   exit
 fi
 
-sudo touch /etc/docker/volumes/traefik/acme.json
-sudo chmod 600 /etc/docker/volumes/traefik/acme.json
+touch ./acme.json
+chmod 600 ./acme.json
 
-sudo docker network create traefik
-sudo docker compose up -d
+docker network create traefik
+docker compose up -d
 

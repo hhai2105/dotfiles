@@ -10,9 +10,9 @@ services:
       - "53:53/tcp"
       - "53:53/udp"
       # Default HTTP Port
-      - "80:80/tcp"
+      - "8444:80/tcp"
       # Default HTTPs Port. FTL will generate a self-signed certificate
-      - "443:443/tcp"
+      - "8445:443/tcp"
       # Uncomment the below if using Pi-hole as your DHCP Server
       #- "67:67/udp"
       # Uncomment the line below if you are using Pi-hole as your NTP server
@@ -22,7 +22,7 @@ services:
       # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones, e.g:
       TZ: 'America/New_York'
       # Set a password to access the web interface. Not setting one will result in a random password being assigned
-      FTLCONF_webserver_api_password: 'correct horse battery staple'
+      FTLCONF_webserver_api_password: '48657'
       # If using Docker's default `bridge` network setting the dns listening mode should be set to 'ALL'
       FTLCONF_dns_listeningMode: 'ALL'
     # Volumes store your data between container upgrades
