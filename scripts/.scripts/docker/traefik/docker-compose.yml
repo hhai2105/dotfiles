@@ -1,33 +1,35 @@
 services:
   traefik:
-    image: "traefik:v3.6"
-    container_name: "traefik"
+    image: traefik:3.6
+    container_name: traefik
     restart: unless-stopped
-    security_opt:
-      - no-new-privileges:true
-    networks:
-      - proxy
-    command:
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-      - "--providers.docker.network=proxy"
-      - "--entryPoints.web.address=:80"
+    environment:
+      - DUCKDNS_TOKEN_FILE=/duckdns.txt
     ports:
-      - "80:80"
-      - "8080:8080"
+      - '80:80'
+      - '443:443/tcp'
+      - '443:443/udp'
     volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik.yml:/traefik.yml:ro
+      - ./traefik_dynamic.yml:/traefik_dynamic.yml:ro
+      - ./acme.json:/acme.json
+      - ./duckdns.txt:/duckdns.txt
+    networks:
+      - traefik
 
   whoami:
     image: "traefik/whoami"
-    restart: unless-stopped
-    networks:
-      - proxy
+    container_name: "whoami"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
-      - "traefik.http.routers.whoami.entrypoints=web"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.hainhome.duckdns.org`)"
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.tls.certresolver=letsencrypt"
+    mem_limit: 10m
+    networks:
+      - traefik
 
 networks:
-  proxy:
-    name: proxy
+  traefik:
+    external: true
