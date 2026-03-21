@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-set -euo pipefail
 
 function crop () {
     scrot -s -f ${NAME};
@@ -21,14 +20,28 @@ function monitor () {
     xclip -selection clipboard -t image/png ${NAME};
 }
 
+
+pid="/home/hain/.local/print-screen"
+trap "rm -f $pid" SIGSEGV
+trap "rm -f $pid" SIGINT
+
+if [ -e $pid ]; then
+    echo "already existed, exiting"
+    exit # pid file exists, another instance is running, so now we politely exit
+else
+    echo $$ > $pid # pid file doesn't exit, create one and go on
+fi
+
+echo "start"
+
 NAME=~/Pictures/Screenshots/$(date '+%m-%d-%Y_%H-%M-%S').png;
 case "$1" in
     -c)
-	crop
-	;;
+    crop
+    ;;
     -w)
-	window
-	;;
+    window
+    ;;
     -a)
         all
         ;;
@@ -36,3 +49,7 @@ case "$1" in
         monitor
         ;;
 esac
+
+rm -f $pid # remove pid file just before exiting
+echo "removing"
+exit
