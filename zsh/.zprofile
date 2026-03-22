@@ -12,4 +12,5 @@ export WINE_PREFIX=~/.wine
 # export LD_LIBRARY_PATH=/usr/lib64/nvidia/:/usr/lib32/nvidia:/usr/lib:${LD_LIBRARY_PATH}
 
 # hyprland
+startx /home/hain/.config/X11/xinitrc
 
