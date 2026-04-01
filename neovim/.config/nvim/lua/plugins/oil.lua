@@ -102,6 +102,18 @@ return  {
             keymaps = {
                 ["g?"] = "actions.show_help",
                 ["<CR>"] = "actions.select",
+                ["<C-o>"] = {
+                    callback = function()
+                        local entry = require("oil").get_cursor_entry()
+                        if entry and entry.name:match("%.pdf$") then
+                            local dir = require("oil").get_current_dir()
+                            vim.fn.jobstart({ "zathura", dir .. entry.name }, { detach = true })
+                        else
+                            require("oil").select()
+                        end
+                    end,
+                    desc = "Open file or PDF in Zathura",
+                },
                 ["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
                 ["<C-h>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
                 ["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
