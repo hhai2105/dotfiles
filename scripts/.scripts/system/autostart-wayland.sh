@@ -10,6 +10,7 @@ function run {
 /usr/bin/prime-offload
 
 #cursor active at boot
+run ollama serve &
 run powerkit &
 run imwheel &
 run ./key_repeat.sh &

@@ -1,15 +1,6 @@
 # Created by newuser for 5.8
 pfetch
 
-function debinstall() {
-  ar x $1 data.tar.xz
-  mkdir /tmp/$1_dir
-  tar -C /tmp/$1_dir -xf data.tar.xz
-  sudo rsync /tmp/$1_dir /
-  rm -f data.tar.xz
-  rm -rf /tmp/$1_dir
-}
-
 # Load version control information
 autoload -Uz vcs_info
 precmd() { vcs_info }

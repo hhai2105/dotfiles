@@ -9,7 +9,9 @@ alias orangepi="ssh orangepi@192.168.1.151"
 alias ls="ls -la --color=auto"
 alias xmm="xmodmap ~/.Xmodmap"
 alias storepackage="paru -Qen"
-alias ga"git apply --3way"
+alias ga="git apply --3way"
+alias claude="ollama launch claude"
+alias reload-tmux="~/.config/tmux/reload-tmux-conf.sh"
 
 bindkey -s '^F' "^u~/.scripts/tmux/sessionizer.sh^M"
 
