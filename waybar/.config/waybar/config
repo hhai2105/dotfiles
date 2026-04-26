@@ -21,12 +21,8 @@
     "hyprland/window": {
         "format": " {}",
         "rewrite": {
-            "(\\d\\. )?(.*) - Chromium": "<span color=\"#4285F4\"></span>  $2 ",
-            "nvim (.*)": "<span color=\"#57A143\"></span>  $1",
-            "nvim": "<span color=\"#57A143\">  Neovim</span> ",
-            "ranger(.*)": "<span color=\"#ffffff\"></span>  $1",
-            //"kitty (.*)": "<span color=\"#ffffff\"></span>  $1",
-            "Search(.*)": "<span color=\"#a855f7\"></span>  Search$1",
+            "(\\d\\. )?(.*) - Brave": "<span color=\"#56b6c2\"></span> $2 ",
+            " *Alacritty *": "<span color=\"#56b6c2\"></span>",
         },
         "separate-outputs": false
     },
@@ -35,17 +31,19 @@
         "max-length": 8,
         "tooltip": true
     },
+    /*static const char *tags[] = { "", "", "", "", "", "", "", "", ""};*/
     "hyprland/workspaces": {
         "separate-outputs": true,
-        "format": "{icon}",
-        "format-icons": {
-        },
+        "format": "{name}",
+        "ignore-workspaces": [
+            "20"
+        ],
     },
     "network": {
         "interface": "enp6s0",
         "tooltip-format-ethernet": "{ifname} ",
         "interval": 2,
-        "format": "{ipaddr}  <span color=\"#57A143\">↑{bandwidthUpBytes}</span>  <span color=\"#ffA143\">↓{bandwidthDownBytes}</span> " ,
+        "format": "{ipaddr}  <span color=\"#57A143\">↑{bandwidthUpBytes:>5}</span>  <span color=\"#ffA143\">↓{bandwidthDownBytes:>5}</span> "
     },
 
     "network2": {
@@ -83,7 +81,7 @@
     },
     "clock": {
         //"format": "<span color=\"#56b6c2\"></span> {:%H:%M}",
-        "format": " {:%d %H:%M}",
+        "format": "{:%B %d %H:%M}",
         "interval": 60,
         "tooltip": true,
         "tooltip-format": "{:%d %B %H:%M}"

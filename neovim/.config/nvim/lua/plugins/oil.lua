@@ -101,19 +101,24 @@ return  {
             -- See :help oil-actions for a list of all available actions
             keymaps = {
                 ["g?"] = "actions.show_help",
-                ["<CR>"] = "actions.select",
-                ["<C-o>"] = {
+                ["<CR>"] = {
                     callback = function()
                         local entry = require("oil").get_cursor_entry()
-                        if entry and entry.name:match("%.pdf$") then
+                        if entry then
                             local dir = require("oil").get_current_dir()
-                            vim.fn.jobstart({ "zathura", dir .. entry.name }, { detach = true })
-                        else
-                            require("oil").select()
+                            local path = dir .. entry.name
+                            if entry.name:match("%.pdf$") then
+                                vim.fn.jobstart({ "zathura", path }, { detach = true })
+                            elseif entry.name:match("%.png$") or entry.name:match("%.jpg$") or entry.name:match("%.jpeg$") or entry.name:match("%.gif$") or entry.name:match("%.webp$") or entry.name:match("%.bmp$") then
+                                vim.fn.jobstart({ "feh", path }, { detach = true })
+                            else
+                                require("oil").select()
+                            end
                         end
                     end,
-                    desc = "Open file or PDF in Zathura",
+                    desc = "Open file (images in feh, PDFs in Zathura)",
                 },
+                ["<C-o>"] = "actions.select",
                 ["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
                 ["<C-h>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
                 ["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
