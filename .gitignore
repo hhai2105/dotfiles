@@ -1,3 +1,6 @@
+hypr/.config/hypr/monitor.conf
+hypr/.config/hypr/monitor-setups/*
+
 autorandr/*
 !autorandr/.config/autorandr/postswitch
 mpd/.config/mpd/database
