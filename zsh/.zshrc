@@ -97,3 +97,5 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 [[ -f /home/hain/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/hain/.config/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+
+. "$HOME/.local/bin/env"

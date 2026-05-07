@@ -1,7 +1,7 @@
 export LANG=en_US.UTF-8
 export EDITOR=nvim
 export _JAVA_AWT_WM_NONREPARENTING=1
-export PATH="$PATH:$HOME/.scripts/tmux"
+export PATH="$PATH:$HOME/.scripts/tmux:$HOME/.local/bin"
 # export PATH="$PATH:$HOME/.local/bin"
 export XDG_CONFIG_HOME="$HOME/.config/"
 export GTK_THEME=Arc-Dark
