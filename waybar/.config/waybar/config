@@ -12,6 +12,7 @@
     "modules-right": [
         "pulseaudio",
         "network",
+        "battery",
         "clock",
     ],
     "tray": {
@@ -21,8 +22,8 @@
     "hyprland/window": {
         "format": " {}",
         "rewrite": {
-            "(\\d\\. )?(.*) - Brave": "<span color=\"#56b6c2\"></span> $2 ",
-            " *Alacritty *": "<span color=\"#56b6c2\"></span>",
+            "(\\d\\. )?(.*) - Brave": "<span color=\"#42c6ff\"></span> $2 ",
+            " *Alacritty *": "<span color=\"#42c6ff\"></span>",
         },
         "separate-outputs": false
     },
@@ -43,7 +44,7 @@
         "interface": "enp6s0",
         "tooltip-format-ethernet": "{ifname} ",
         "interval": 2,
-        "format": "{ipaddr}  <span color=\"#57A143\">↑{bandwidthUpBytes:>5}</span>  <span color=\"#ffA143\">↓{bandwidthDownBytes:>5}</span> "
+        "format": "{ipaddr}  <span color=\"#a7da1e\">↑{bandwidthUpBytes:>5}</span>  <span color=\"#cf433e\">↓{bandwidthDownBytes:>5}</span> "
     },
 
     "network2": {
