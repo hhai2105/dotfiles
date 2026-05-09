@@ -41,7 +41,6 @@
         ],
     },
     "network": {
-        "interface": "enp6s0",
         "tooltip-format-ethernet": "{ifname} ",
         "interval": 2,
         "format": "{ipaddr}  <span color=\"#a7da1e\">↑{bandwidthUpBytes:>5}</span>  <span color=\"#cf433e\">↓{bandwidthDownBytes:>5}</span> "

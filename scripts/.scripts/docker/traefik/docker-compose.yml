@@ -1,20 +1,18 @@
 services:
   traefik:
     image: traefik:3.6
-    container_name: traefik
+    container_name: traefik-container
     restart: unless-stopped
-    environment:
-      - DUCKDNS_TOKEN_FILE=/duckdns.txt
     ports:
       - '80:80'
       - '443:443/tcp'
       - '443:443/udp'
+      - '8080:8080'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./traefik.yml:/traefik.yml:ro
-      - ./traefik_dynamic.yml:/traefik_dynamic.yml:ro
+      - ./config/traefik.yml:/traefik.yml:ro
+      - ./config/traefik_dynamic.yml:/traefik_dynamic.yml:ro
       - ./acme.json:/acme.json
-      - ./duckdns.txt:/duckdns.txt
     networks:
       - traefik
 
@@ -23,9 +21,8 @@ services:
     container_name: "whoami"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`whoami.hainhome.duckdns.org`)"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.hainhome.com`)"
       - "traefik.http.routers.whoami.entrypoints=websecure"
-      - "traefik.http.routers.whoami.tls.certresolver=letsencrypt"
     mem_limit: 10m
     networks:
       - traefik
