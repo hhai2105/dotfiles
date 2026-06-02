@@ -1,0 +1,41 @@
+# Outrun Electric Theme
+foreground = #f2f3f7
+background = #090819
+
+# Normal colors
+palette = 0=#110d26
+palette = 1=#e61f44
+palette = 2=#a7da1e
+palette = 3=#fded02
+palette = 4=#3f88ad
+palette = 5=#ff2afc
+palette = 6=#204052
+palette = 7=#919ad9
+
+# Bright colors
+palette = 8=#3b4167
+palette = 9=#cf433e
+palette = 10=#a875ff
+palette = 11=#ffd400
+palette = 12=#1ea8fc
+palette = 13=#df85ff
+palette = 14=#42c6ff
+palette = 15=#f2f3f7
+
+# Cursor colors
+cursor-color = #1ea8fc
+cursor-text = #f2f3f7
+
+# Selection colors
+selection-background = #3b4167
+selection-foreground = #f2f3f7
+
+# Transparency
+background-opacity = 0.90
+
+
+# Font
+font-family = JetBrainsMono Nerd Font
+font-size = 11
+
+confirm-close-surface = false
