@@ -22,11 +22,14 @@ services:
     command:
       # EntryPoints
       - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
       - "--entrypoints.websecure.address=:443"
       - "--entrypoints.websecure.http.tls=true"
 
       # Attach the static configuration tls.yaml file that contains the tls configuration settings
-      - "--providers.file.filename=/dynamic/tls.yaml"
+      - "--providers.file.filename=/dynamic/dynamic.yaml"
 
       # Providers 
       - "--providers.docker=true"
@@ -62,7 +65,7 @@ services:
       - proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`whoami.docker.local`)"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.docker.`)"
       - "traefik.http.routers.whoami.entrypoints=websecure"
       - "traefik.http.routers.whoami.tls=true"
 

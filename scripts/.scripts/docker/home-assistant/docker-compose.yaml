@@ -21,3 +21,4 @@ services:
       - /opt/matter-server:/data
       - /run/dbus:/run/dbus:ro
     network_mode: host
+

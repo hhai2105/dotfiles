@@ -1,0 +1,17 @@
+tls:
+  certificates:
+    - certFile: /certs/local.crt
+      keyFile:  /certs/local.key
+
+http:
+  routers:
+    homeassistant-rtr:
+      rule: "Host(`homeassistant.docker.local`)"
+      entryPoints:
+        - websecure 
+      service: homeassistant-svc
+  services:
+    homeassistant-svc:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.202:8123"
