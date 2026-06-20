@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
+session="llm"
+llm_dir="$HOME/.scripts/llm"
+
+# Check if the tmux session exists
+if tmux has-session -t=$session 2>/dev/null; then
+    # Session is running — offer to kill it
+    choice=$(echo "Stop LLM" | rofi -dmenu -i -p "LLM server")
+    if [[ "$choice" == "Stop LLM" ]]; then
+        tmux send-keys -t $session C-c
+        sleep 0.5
+        tmux kill-session -t $session 2>/dev/null || true
+    fi
+else
+    # Session is not running — offer to start
+    # List available scripts for model selection
+    echo "test"
+    options=$(ls ~/.scripts/llm/qwen*.sh |  tr '\n' '\n' | xargs basename .sh)
+    choice=$(echo "$options" | rofi -dmenu -i -p "Select model")
+    if [[ -n "$choice" ]]; then
+        # Create detached session, start the model, then attach
+        tmux new-session -ds $session -c "$llm_dir"
+        tmux send-keys -t $session "cd $llm_dir && exec ./${choice}.sh" Enter
+        tmux attach-session -t $session
+    fi
+fi

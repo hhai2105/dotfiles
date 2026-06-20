@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    choices=$(find -L ~/code ~/ ~/.config ~/.scripts/docker -mindepth 1 -maxdepth 1 -type d)
+    choices=$(find -L ~/code ~/ ~/.config ~/.scripts/docker ~/.scripts/llm ~/.scripts -mindepth 1 -maxdepth 1 -type d)
     selected=$(echo $choices | fzf)
 fi
 

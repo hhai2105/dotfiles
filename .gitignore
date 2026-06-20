@@ -11,3 +11,6 @@ mpd/.config/mpd/sticker.sql
 
 /**/undodir/*
 
+**/.claude
+!claude/.claude
+
