@@ -15,12 +15,21 @@ http:
       entryPoints:
         - websecure 
       service: llm-svc
+    wg-rtr:
+      rule: "Host(`wg.docker.local`)"
+      entryPoints:
+        - websecure 
+      service: wg-svc
   services:
     homeassistant-svc:
       loadBalancer:
         servers:
-          - url: "http://192.168.1.202:8123"
+          - url: "http://192.168.209.175:8123"
     llm-svc:
       loadBalancer:
         servers:
           - url: "http://main.local:8080"
+    wg-svc:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.209.175:51821"

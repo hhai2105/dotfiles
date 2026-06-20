@@ -1,0 +1,5 @@
+ingress:
+  - hostname: hainhome.com
+    service: http://localhost:80
+  - hostname: "*.hainhome.com"
+    service: http://localhost:80
