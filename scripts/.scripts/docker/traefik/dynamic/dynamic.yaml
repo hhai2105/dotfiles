@@ -10,8 +10,17 @@ http:
       entryPoints:
         - websecure 
       service: homeassistant-svc
+    llm-rtr:
+      rule: "Host(`llm.docker.local`)"
+      entryPoints:
+        - websecure 
+      service: llm-svc
   services:
     homeassistant-svc:
       loadBalancer:
         servers:
           - url: "http://192.168.1.202:8123"
+    llm-svc:
+      loadBalancer:
+        servers:
+          - url: "http://main.local:8080"
