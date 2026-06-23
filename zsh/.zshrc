@@ -87,7 +87,3 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /home/hain/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/hain/.config/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
-
-export ANTHROPIC_AUTH_TOKEN="freecc" 
-export ANTHROPIC_BASE_URL="http://localhost:8080" 
-export CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1
