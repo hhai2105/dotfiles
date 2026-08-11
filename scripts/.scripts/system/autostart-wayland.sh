@@ -11,7 +11,7 @@ function run {
 
 #cursor active at boot
 run ollama serve &
-run ibus-daemon -d &
+run fcitx5 -d &
 run mpDris2 &
 run mpd &
 run udiskie &
