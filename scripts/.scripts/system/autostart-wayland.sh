@@ -18,10 +18,9 @@ run udiskie &
 run blueman-applet &
 run dunst &
 run mpv --input-ipc-server=/tmp/mpvsocket &
-run hyprpaper &
+run hyprpaper &&
 $HOME/.config/hypr/scripts/set-random-wallpaper.sh &
-# Start LLM server via run.sh (creates tmux session, no attach needed)
-$HOME/.scripts/llm/run.sh qwenlite.sh &
 run waybar &
-# run mailspring -b &
-# run $HOME/.scripts/system/dynamic-wallpaper.sh &
+
+# Start LLM server via run.sh (creates tmux session, no attach needed)
+# $HOME/.scripts/llm/run.sh qwenlite.sh &

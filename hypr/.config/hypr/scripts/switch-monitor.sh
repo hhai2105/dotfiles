@@ -7,5 +7,5 @@ then
     exit 0
 fi 
 
-echo "source= $HOME/.config/hypr/monitor-setups/${OPTION}" 
-echo "source= $HOME/.config/hypr/monitor-setups/${OPTION}" > ~/.config/hypr/monitor.conf
+echo "require(\"monitor-setups/${OPTION}\")" 
+echo "require(\"monitor-setups/${OPTION}\")" > ~/.config/hypr/monitor.conf

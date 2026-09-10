@@ -13,6 +13,8 @@ EXECUTABLE="$2"
 # Get all clients and find the one matching the class name
 WINDOW_DATA=$(hyprctl clients -j | jq -r ".[] | select(.class == \"$CLASS_NAME\") | \"\(.workspace.id) \(.address)\"")
 
+echo $WINDOW_DATA
+
 if [ -z "$WINDOW_DATA" ]; then
     # No window found, launch the executable
     $EXECUTABLE &
@@ -23,8 +25,13 @@ fi
 WORKSPACE_ID=$(echo "$WINDOW_DATA" | head -n1 | awk '{print $1}')
 WINDOW_ADDR=$(echo "$WINDOW_DATA" | head -n1 | awk '{print $2}')
 
+echo $WORKSPACE_ID
+echo $WINDOW_ADDR
+
 # Switch to the workspace
 hyprctl dispatch workspace "$WORKSPACE_ID"
 
+hyprctl dispatch "hl.dsp.focus({ workspace = \"$WORKSPACE_ID\" })"
+
 # Focus the specific window
-hyprctl dispatch focuswindow address:"$WINDOW_ADDR"
+hyprctl dispatch "hl.dsp.focus({window = \"address:$WINDOW_ADDR\"})"
