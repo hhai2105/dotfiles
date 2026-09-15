@@ -1,6 +1,6 @@
 #!/bin/sh
 
-OPTION=$(find $HOME/.config/hypr/monitor-setups -mindepth 1 -printf "%f\n" | rofi -dmenu)
+OPTION=$(find $HOME/.config/hypr/monitor-setups -mindepth 1 -printf "%f\n" | grep -v .example | cut -d "." -f 1 | rofi -dmenu )
 
 if [ -z "$OPTION" ]
 then
@@ -8,4 +8,4 @@ then
 fi 
 
 echo "require(\"monitor-setups/${OPTION}\")" 
-echo "require(\"monitor-setups/${OPTION}\")" > ~/.config/hypr/monitor.conf
+echo "require(\"monitor-setups/${OPTION}\")" > ~/.config/hypr/monitor.lua
