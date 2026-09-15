@@ -28,12 +28,3 @@ for i = 1, 10 do
     hl.bind("SUPER + " .. key,             hl.dsp.focus({ workspace = i}))
     hl.bind("SUPER + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
-
-
-local monitorKeyMap = {"w", "e"}
-local monitorMap = {"DP-5", "DP-4"}
-for i = 1, 2 do
-    local key = monitorKeyMap[i]
-    hl.bind("SUPER + " .. key,             hl.dsp.focus({ monitor = monitorMap[i]}))
-    hl.bind("SUPER + SHIFT + " .. key,     hl.dsp.workspace.move({ monitor = monitorMap[i] }))
-end
