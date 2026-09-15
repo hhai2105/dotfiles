@@ -1,9 +1,7 @@
--- Switch to a submap called `resize`.
-hl.bind("SUPER + SHIFT + p", hl.dsp.submap("power"))
+require("keybinds/helper")
 
--- Start a submap called "resize".
+hl.bind("SUPER + SHIFT + p", hl.dsp.submap("power"))
 hl.define_submap("power", function()
-    -- Set repeating binds for resizing the active window.
     hl.bind("q", function()
         hl.timer(function()
             hl.dispatch(hl.dsp.dpms({ action = "disable" }))
@@ -15,23 +13,28 @@ hl.define_submap("power", function()
             hl.dispatch(hl.dsp.dpms({ action = "enable" }))
         end, {timeout = 500, type = "oneshot"})
     end)
-    hl.bind("catchall", hl.dsp.submap("reset"))
 
+    hl.bind("catchall", hl.dsp.submap("reset"))
     hl.bind("escape", hl.dsp.exit())
 
 end)
 
--- Switch to a submap called `resize`.
 hl.bind("SUPER + o", hl.dsp.submap("search"))
-
--- Start a submap called "resize".
 hl.define_submap("search", function()
     -- Set repeating binds for resizing the active window.
-    hl.bind("o", hl.dsp.exec_cmd("~/.scripts/rofi/rofi-search/search search"))
-    hl.bind("SUPER + o", hl.dsp.exec_cmd("~/.scripts/rofi/rofi-search/search search"))
-    hl.bind("m", hl.dsp.exec_cmd("~/.scripts/rofi/rofi-search/search quickmark"))
-    hl.bind("SUPER + m", hl.dsp.exec_cmd("~/.scripts/rofi/rofi-search/search quickmark"))
-    hl.bind("catchall", hl.dsp.submap("reset"))
-    hl.bind("m", hl.dsp.exit())
+    commandWithReset("o", "~/.scripts/rofi/rofi-search/search search")
+    commandWithReset("SUPER + o", "~/.scripts/rofi/rofi-search/search search")
 
+    commandWithReset("m", "~/.scripts/rofi/rofi-search/search quickmark")
+    commandWithReset("SUPER + m", "~/.scripts/rofi/rofi-search/search quickmark")
+
+    hl.bind("catchall", hl.dsp.submap("reset"))
+
+end)
+
+hl.bind("SUPER + p", hl.dsp.submap("general"))
+hl.define_submap("general", function()
+    commandWithReset("l", "killall hyperhdr & sleep .2 && hyperhdr --pipewire")
+    commandWithReset("SUPER + l", "killall hyperhdr & sleep .2 && hyperhdr --pipewire")
+    hl.bind("catchall", hl.dsp.submap("reset"))
 end)

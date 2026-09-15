@@ -21,6 +21,7 @@ run mpv --input-ipc-server=/tmp/mpvsocket &
 run hyprpaper &&
 $HOME/.config/hypr/scripts/set-random-wallpaper.sh &
 run waybar &
+sleep 3 && run hyperhdr --pipewire
 
 # Start LLM server via run.sh (creates tmux session, no attach needed)
 # $HOME/.scripts/llm/run.sh qwenlite.sh &
