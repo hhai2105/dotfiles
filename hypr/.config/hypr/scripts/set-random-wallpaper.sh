@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if ! command -v jq >/dev/null 2>&1; then
+    echo "Error: jq is not installed"
+    exit 1
+fi
+
 WALLPAPER_DIR="$HOME/Pictures/Wallpapers/minimal"
 CURRENT_DIR="$HOME/Pictures/Wallpapers/current"
 

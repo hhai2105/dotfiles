@@ -6,6 +6,10 @@ hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("NVD_BACKEND", "direct")
 
+-- Render on the NVIDIA dGPU; Intel iGPU (which owns all outputs) is secondary.
+-- Symlinks come from /etc/udev/rules.d/99-dri-names.rules
+hl.env("AQ_DRM_DEVICES", "/dev/dri/nvidia-dgpu:/dev/dri/intel-igpu")
+
 hl.config({
     misc = {
         force_default_wallpaper = 0,    -- Set to 0 or 1 to disable the anime mascot wallpapers
