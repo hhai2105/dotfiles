@@ -13,7 +13,6 @@ hl.bind("SUPER + j", hl.dsp.layout("cyclenext"))
 hl.bind("SUPER + k",    hl.dsp.layout("cycleprev"))
 hl.bind("SUPER + l",  hl.dsp.focus({ direction = "right" }))
 
-hl.bind("SUPER + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind("SUPER + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
