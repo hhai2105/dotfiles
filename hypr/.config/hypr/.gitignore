@@ -1,3 +1,4 @@
 keybinds/monitor.lua
 monitor.conf
 monitor-setups/*.lua
+env-local.lua

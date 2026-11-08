@@ -1,0 +1,7 @@
+-- Machine-specific environment. Copy to env-local.lua (gitignored) and edit.
+
+-- Laptop (NVIDIA dGPU renders, Intel iGPU owns the outputs).
+-- Symlinks come from /etc/udev/rules.d/99-dri-names.rules:
+--   KERNEL=="card*", SUBSYSTEM=="drm", KERNELS=="<dgpu pci addr>", SYMLINK+="dri/nvidia-dgpu"
+--   KERNEL=="card*", SUBSYSTEM=="drm", KERNELS=="<igpu pci addr>", SYMLINK+="dri/intel-igpu"
+-- hl.env("AQ_DRM_DEVICES", "/dev/dri/nvidia-dgpu:/dev/dri/intel-igpu")
