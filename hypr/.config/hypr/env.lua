@@ -14,6 +14,9 @@ hl.config({
     xwayland = {
         force_zero_scaling = true
     },
+    render = {
+        cm_auto_hdr = 0
+    }
 })
 
 -- Per-machine overrides (GPU selection, etc.) live in env-local.lua, which is
