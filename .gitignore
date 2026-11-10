@@ -11,3 +11,4 @@ mpd/.config/mpd/sticker.sql
 **/.claude
 !claude/.claude
 
+claude/.claude/skills/synced/
